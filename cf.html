@@ -306,48 +306,7 @@
 
             <!-- Upcoming Events Section -->
             <div class="announcement-section">
-                <!-- <h4>Your Articles</h4> -->
-                <!-- <div class="row">
-                    
-
-                    <div class="card col-md-6 col-sm-6">
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                    </div>
-
-                    <div class="card col-md-6 col-sm-6">
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                    </div>
-                </div> -->
+          
             </div>
 
 
@@ -359,7 +318,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title:</label>
                                 <input type="text" class="form-control" id="title"
-                                    placeholder="The name of your flora item." name="title" required>
+                                    placeholder="The name of your flora item." name="title" >
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Upload Image:</label>
@@ -392,93 +351,186 @@
     </div>
 
 
-    <!-- <script>
-        // Function to handle form submission
-        document.getElementById("postForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
+    <script>
+        // // Function to handle form submission
+        // document.getElementById("postForm").addEventListener("submit", function (event) {
+        //     event.preventDefault(); // Prevent default form submission
+    
+        //     // Get form values
+        //     var title = document.getElementById("title").value;
+        //     var image = document.getElementById("image").files[0];
+        //     var description = document.getElementById("description").value;
+    
+        //     // Create new post element
+        //     var post = document.createElement("div");
+        //     post.classList.add("card", "mb-3");
+        //     post.innerHTML = `
+        //         <div class="card-header">
+        //             <div class="d-flex justify-content-between align-items-center">
+        //                 <h5 class="card-title">${title}</h5>
+        //                 <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">
+        //                     <i class="bi bi-trash-fill" style="font-size: 20px;"></i></button>
+        //             </div>
+        //         </div>
+        //         <div class="card-body">
+        //             <div class="row">
+        //                 <div class="col-md-6">
+        //                     <p class="card-text">${description}</p>
+        //                 </div>
+        //                 <div class="col-md-6">
+        //                     <img src="${URL.createObjectURL(image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
+        //                 </div>
+        //             </div>
+        //         </div>
+        //     `;
+    
+        //     // Append post to post list
+        //     document.getElementById("postList").appendChild(post);
+    
+        //     // Clear form fields
+        //     document.getElementById("title").value = "";
+        //     document.getElementById("image").value = "";
+        //     document.getElementById("description").value = "";
+    
+        //     // Save draft to localStorage
+        //     saveDraft(title, description, image);
+        // });
+    
+        // // Function to save draft to localStorage
+        // function saveDraft(title, description, image) {
+        //     var drafts = JSON.parse(localStorage.getItem("drafts")) || [];
+        //     drafts.push({ title: title, description: description, image: image });
+        //     localStorage.setItem("drafts", JSON.stringify(drafts));
+        // }
+    
+        // // Function to load drafts from localStorage
+        // function loadDrafts() {
+        //     var drafts = JSON.parse(localStorage.getItem("drafts")) || [];
+        //     drafts.forEach(function (draft) {
+        //         var post = document.createElement("div");
+        //         post.classList.add("card", "mb-3");
+        //         post.innerHTML = `
+        //             <div class="card-header">
+        //                 <div class="d-flex justify-content-between align-items-center">
+        //                     <h5 class="card-title">${draft.title}</h5>
+        //                     <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">Delete</button>
+        //                 </div>
+        //             </div>
+        //             <div class="card-body">
+        //                 <div class="row">
+        //                     <div class="col-md-6">
+        //                         <p class="card-text">${draft.description}</p>
+        //                     </div>
+        //                     <div class="col-md-6">
+        //                         <img src="${URL.createObjectURL(draft.image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
+        //                     </div>
+        //                 </div>
+        //             </div>
+        //         `;
+        //         document.getElementById("postList").appendChild(post);
+        //     });
+        // }
+    
+        // // Load drafts when the page is loaded
+        // window.addEventListener("load", function () {
+        //     loadDrafts();
+        // });
+        
+    </script>
+    
+    <script>
+// Function to handle form submission
+document.getElementById("postForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
 
-            // Get form values
-            var title = document.getElementById("title").value;
-            var image = document.getElementById("image").files[0];
-            var description = document.getElementById("description").value;
+    // Get form values
+    var title = document.getElementById("title").value;
+    var image = document.getElementById("image").files[0];
+    var description = document.getElementById("description").value;
+
+    // Read the image file as a base64 encoded string
+    var reader = new FileReader();
+    reader.onload = function(event) {
+        var imageData = event.target.result;
+
+        // Check if the post already exists in local storage
+        var posts = JSON.parse(localStorage.getItem("posts")) || [];
+        var existingPost = posts.find(function(post) {
+            return post.title === title && post.description === description && post.image === imageData;
+        });
+
+        // If the post doesn't already exist and image data is available, add it
+        if (!existingPost && imageData) {
+            var post = {
+                title: title,
+                description: description,
+                image: imageData
+            };
 
             // Create new post element
-            var post = document.createElement("div");
-            post.classList.add("card", "mb-3");
-            post.innerHTML = `
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">${title}</h5>
-                        <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">
-                            <i class="bi bi-trash-fill" style="font-size: 20px;"></i></button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="card-text">${description}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="${URL.createObjectURL(image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                        </div>
-                    </div>
-                </div>
-            `;
+            var postElement = createPostElement(post);
 
             // Append post to post list
-            document.getElementById("postList").appendChild(post);
+            document.getElementById("postList").appendChild(postElement);
 
-            // Clear form fields
-            document.getElementById("title").value = "";
-            document.getElementById("image").value = "";
-            document.getElementById("description").value = "";
-
-            // Save draft to sessionStorage
-            saveDraft(title, description, image);
-        });
-
-        // Function to save draft to sessionStorage
-        function saveDraft(title, description, image) {
-            var drafts = JSON.parse(sessionStorage.getItem("drafts")) || [];
-            drafts.push({ title: title, description: description, image: image });
-            sessionStorage.setItem("drafts", JSON.stringify(drafts));
+            // Save post data to local storage
+            posts.push(post);
+            localStorage.setItem("posts", JSON.stringify(posts));
         }
+    };
+    // Check if image is selected
+    if (image) {
+        reader.readAsDataURL(image);
+    }
+});
 
-        // Function to load drafts from sessionStorage
-        function loadDrafts() {
-            var drafts = JSON.parse(sessionStorage.getItem("drafts")) || [];
-            drafts.forEach(function (draft) {
-                var post = document.createElement("div");
-                post.classList.add("card", "mb-3");
-                post.innerHTML = `
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title">${draft.title}</h5>
-                            <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">Delete</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="card-text">${draft.description}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="${URL.createObjectURL(draft.image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.getElementById("postList").appendChild(post);
-            });
+// Function to create post element
+function createPostElement(post) {
+    var postElement = document.createElement("div");
+    postElement.classList.add("card", "mb-3");
+    postElement.innerHTML = `
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title">${post.title}</h5>
+                <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">Delete</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="card-text">${post.description}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="${post.image}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
+                </div>
+            </div>
+        </div>
+    `;
+    return postElement;
+}
+
+// Function to load posts from local storage
+function loadPosts() {
+    var posts = JSON.parse(localStorage.getItem("posts")) || [];
+    posts.forEach(function(post) {
+        // Check if image data is available
+        if (post.image) {
+            var postElement = createPostElement(post);
+            document.getElementById("postList").appendChild(postElement);
         }
+    });
+}
 
-        // Load drafts when the page is loaded
-        window.addEventListener("load", function () {
-            loadDrafts();
-        });
-    </script> -->
+// Load posts when the page is loaded
+window.addEventListener("load", function() {
+    loadPosts();
+});
 
 
+    </script>
+    
+    
+    
 
 
 
@@ -655,56 +707,3 @@
 </body>
 
 </html>
-
-<!-- <script>
-        // Function to handle form submission
-        document.getElementById("postForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Get form values
-            var title = document.getElementById("title").value;
-            var image = document.getElementById("image").files[0];
-            var description = document.getElementById("description").value;
-
-            // Create new post object
-            var post = { title: title, description: description, image: image };
-
-            // Store the post in localStorage
-            var posts = JSON.parse(localStorage.getItem("posts")) || [];
-            posts.push(post);
-            localStorage.setItem("posts", JSON.stringify(posts));
-
-            // Clear form fields
-            document.getElementById("title").value = "";
-            document.getElementById("image").value = "";
-            document.getElementById("description").value = "";
-
-            // Display the post immediately
-            displayPost(post);
-        });
-
-        // Function to display a single post
-        function displayPost(post) {
-            var postList = document.getElementById("postList");
-            var postElement = document.createElement("div");
-            postElement.classList.add("card", "mb-3");
-            postElement.innerHTML = `
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">${post.title}</h5>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="card-text">${post.description}</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="${URL.createObjectURL(post.image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                </div>
-            </div>
-        </div>
-    `;
-            postList.appendChild(postElement);
-        }
-    </script> -->
