@@ -1,0 +1,138 @@
+body{
+    background-image: url('./images/el.png');
+    /* background-color: rgb(227, 236, 239); */
+}
+.pagination{
+  text-align:center;
+  padding-right: 2%;
+  margin-right: 10%;
+  margin-left: 10%;
+}
+
+.pest-and-disease-section{
+    /* background-image: url('./images/el.png'); */
+    padding-top: 10%;
+    padding-bottom: 20%;
+    /* margin-top: -20px; */
+    /* margin-bottom: 50rem; */
+    /* margin-right: -150px; */
+    /* margin-left: -150px; */
+    height: 100vh;
+    /* width: 50%; */
+    position: relative;
+    background-size: cover;
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+  }
+  
+  
+  .pest-and-disease-container {
+    /* position: absolute; */
+    display: grid;
+    align-items: center;
+    width: 50%;
+    /* margin-bottom: 50rem; */
+    margin-top: 5%;
+    margin-left: 23%;
+    margin-right: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pest-and-disease-container a {
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  .pest-and-disease-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .guidelines-tab {
+    padding-left: 0;
+    padding-top: -5%;
+    padding-bottom: 15px;
+  }
+  
+  .guidelines-title {
+    font-weight: 600;
+    margin-top: 20px;
+    text-align: center;
+    /* margin-left: 10%; */
+    padding-bottom: 15px;
+  }
+  .guidelines-title h2{
+font-weight: 700; 
+font-style: italic;
+  }
+  .listed-items {
+    padding-top: 40px;
+    display: flex;
+    gap: 200px;
+  }
+  
+  .listed-items a {
+    text-decoration: none;
+  }
+  
+  .listed-items a:hover {
+    text-decoration: underline;
+  }
+  
+  .pest-and-disease-context {
+    padding-left: 5%;
+    padding-bottom: 20%;
+    margin-bottom: 2px;
+    
+  }
+
+  /* ------------ */
+  /* .pest-and-disease-context1{
+    background-image: url('./images/el.png');
+    padding-top: 60%;
+    margin-top: 150px;
+    margin-right: -150px;
+    margin-left: -150px;
+    height: 100vh;
+    width: 50%;
+    position: relative;
+    background-size: cover;
+    background-color: antiquewhite;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .pest-and-disease-container1 {
+    position: absolute;
+    display: grid;
+    width: 50%;
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .pest-and-disease-container1 a {
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  .pest-and-disease-container1 a:hover {
+    text-decoration: underline;
+  }
+  .pest-and-disease-context1 {
+    padding-left: 5%;
+    margin-top: 1rem;
+  } */
+/* .pest-and-disease-context{
+   padding-left: 5%;
+    padding-bottom: 20%;
+    margin-bottom: 2px;
+} */
+  

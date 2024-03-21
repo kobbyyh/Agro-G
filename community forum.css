@@ -1,0 +1,37 @@
+/* .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    } */
+
+.forum-container {
+  padding: 20px;
+}
+
+.discussion-thread {
+  margin-bottom: 20px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.announcement-section {
+  margin-top: 30px;
+}
+
+.post-section {
+  margin-top: 30px;
+}
+
+.like-btn {
+  cursor: pointer;
+}

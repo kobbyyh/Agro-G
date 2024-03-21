@@ -1,0 +1,158 @@
+.pager{
+    width: 99%;
+}
+.SVG-Image img{
+    width: 20%;
+    height: 200%;
+}
+#temperature{
+    background-color: white;
+    padding: 5px;
+    padding-left: 2rem;
+    margin: 1px;
+    border: 50px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 800;
+}
+.card {
+    perspective: 100px;
+    cursor: pointer;
+    border-radius: 2%;
+}
+
+.card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    height: 200px;
+    border-radius: 2%;
+}
+
+.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.winter-front,
+.winter-back,
+.summer-back,
+.summer-front,
+.autumn-front,
+.autumn-back,
+.spring-front,
+.spring-back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    border-radius: 2%;
+}
+/* winter */
+.winter-front {
+    background-image: url('./images/winter.jpg'); 
+    background-size: cover;
+}
+/* .winter-back {
+    background-image: url('./images/spring.jpg');
+    transform: rotateY(180deg);
+} */
+.winter-back {
+    transform: rotateY(180deg);
+}
+/* summer */
+.summer-front {
+    background-image: url('./images/summer.jpg'); 
+    background-size: cover;
+}
+.summer-back {
+    transform: rotateY(180deg);
+}
+/* autumn */
+.autumn-front {
+    background-image: url('./images/autumn.jpg'); 
+    background-size: cover;
+}
+.autumn-back {
+    transform: rotateY(180deg);
+}
+/* spring */
+.spring-front {
+    background-image: url('./images/spring.jpg'); 
+    background-size: cover;
+}
+.spring-back {
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-attachment: url('./images/spring-video.mp4'); 
+}
+
+/* .card-title-weather-headings h5{
+    display: none;  
+} */
+.card-title-weather-headings:hover{
+    display: block;
+    padding: 4px;
+    /* content: "Click Me"; */
+    /* border: 2px solid; */
+    /* border-radius: 18px; */
+    margin: 2px;
+    /* background-color: rgb(83, 161, 183); */
+}
+.weather-conditions{
+    padding-top: 100px;
+    padding-left: 40px;
+    padding-bottom: -100px;
+    
+}
+.weather-ind{
+    gap: 2px;
+    padding-bottom: 30px;
+    border-radius: 40px;
+}
+.self-container{
+    padding: 30px;
+}
+
+.globe-img {
+    position: absolute;
+}
+
+video {
+    /* position: fixed; */
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    /* z-index: -1; */
+ }
+
+
+.carousel-item img{
+    background-size: cover;
+    height: 300px;
+}
+.details {
+    padding: 1%;
+    padding-left: 5%;
+    padding-right: 5%;
+    /* background-color: rgb(81, 50, 50); */
+}
+
+.details-text {
+    margin-top: 10rem;
+    /* margin-bottom: 10%; */
+}
+/* #summer-background{
+background-color: whitesmoke;
+}
+#winter-background{
+background-color: whitesmoke;
+} */
+

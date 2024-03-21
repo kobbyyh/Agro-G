@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agroculture | Seasons</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="weather forecast.css">
+    <script src="horti.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <video autoplay muted loop>
+        <source src="./images/milkyway.mp4" type="video/mp4">
+    </video>
+    <div class="pager">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="navigation container-fluid">
+
+                <img src="./images/agroculture.png" style="width:70px" class="kayybites_logo d-inline-block align-top"
+                    alt="Logo">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Flora</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Weather Forecast</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="community forum.html">Community Forum</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-svg">
+                        <a href="contact.html" type="button" class="btn btn-outline-danger mr-2" id="myBtn">
+                            Dashboard
+                        </a>
+                        <i class="bi bi-moon" style="color:rgb(183, 155, 63);font-size: 20px; margin-right: 10px;"
+                            id="dark-mode-toggle"></i>
+
+                        <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                        <a href="index.html"><i class="bi bi-person-circle" style="font-size: 20px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row weather-conditions">
+            <div class="col-md-6 custom-grid">
+                <img id="" src="./images/Rotating-globe-unscreen.gif" width="500" height="550"
+                    class="img-fluid custom-image-size" alt="Image">
+            </div>
+            <div class="self-container col-md-6 ">
+                <div class="mt-3">
+                    <div class="row">
+                        <p id="temperature" style="color:green">Loading...</p>
+                        <div class="weather-ind col-md-6 col-sm-6">
+                            <div class="card" onclick="flipCard(this)">
+                                <div class="card-inner bg-white">
+                                    <div class="spring-front">
+                                        <!-- <img src="./images/waving.png" class="card-title-weather-headings"
+                                            style="width:150px; height: 50px;" alt=""> -->
+                                    </div>
+                                    <div class="spring-back">
+                                        <h5 class="card-title">Spring is a season of hope and growth, symbolizing the
+                                            beauty of new beginnings. <br>
+                                            <p style="padding-top: 10px;"><button class="btn btn-outline-info"><a
+                                                        href="#spring-background"
+                                                        style="text-decoration:none">Explore</a></button></p>
+                                            <!-- <a href="#spring-background"> Explore</a>  -->
+                                        </h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="weather-ind col-md-6 col-sm-6">
+                            <div class="card" onclick="flipCard(this)">
+                                <div class="card-inner bg-white">
+                                    <div class="winter-front">
+                                        <!-- <img src="./images/waving.png" class="card-title-weather-headings"
+                                            style="width:150px; height: 50px;" alt=""> -->
+                                    </div>
+                                    <div class="winter-back">
+                                        <h5 class="card-title">Winter is a season of contrasts—beautiful snowy
+                                            landscapes, festive celebrations, and the need for warmth.
+                                            <br>
+                                            <p style="padding-top: 10px;"><button class="btn btn-outline-info"><a
+                                                        href="#winter-background"
+                                                        style="text-decoration:none">Explore</a></button></p>
+                                        </h5>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="weather-ind col-md-6 col-sm-6">
+                            <div class="card" onclick="flipCard(this)">
+                                <div class="card-inner bg-white">
+                                    <div class="autumn-front">
+                                        <!-- <img src="./images/waving.png" class="card-title-weather-headings"
+                                            style="width:150px; height: 50px;" alt=""> -->
+                                    </div>
+                                    <div class="autumn-back">
+                                        <h5 class="card-title">Autumn is a season of change and transition. It offers a
+                                            time for reflection, appreciation of nature's transformations,
+                                            <!-- and the
+                                            enjoyment of seasonal delights that define this unique and colorful time of
+                                            the year. --><br>
+                                            <p style="padding-top: 10px;"><button class="btn btn-outline-info"><a
+                                                        href="#autumn-background"
+                                                        style="text-decoration:none">Explore</a></button></p>
+                                        </h5>
+                                        </p>
+                                        </h5>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="weather-ind col-md-6 col-sm-6">
+                            <div class="card" onclick="flipCard(this)">
+                                <div class="card-inner bg-white">
+                                    <div class="summer-front">
+                                        <!-- <img src="./images/waving.png" class="card-title-weather-headings"
+                                            style="width:150px; height: 50px;" alt=""> -->
+                                    </div>
+                                    <div class="summer-back">
+                                        <h5 class="card-title">Summer is a season of energy, vibrancy. It brings people
+                                            together for relaxation,
+                                            exploration, and enjoyment of the natural beauty.<br>
+                                            <p style="padding-top: 10px;"><button class="btn btn-outline-info"><a
+                                                        href="#summer-background"
+                                                        style="text-decoration:none;">Explore</a></button></p>
+                                        </h5>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="notes-on-seasons">
+            <div class="spring-season">
+                <div class="details" id="spring-background">
+                    <div class="details-text">
+                        <div class="big-text">
+                            <p align="center">About</p>
+                            <h3 align="center">Spring Season</h3>
+                        </div>
+                        <div class="landing-text">
+                            <div class="row">
+                                <div class="col-md-6 custom-grid">
+                                    <p>Happy farming, everyone!</p>
+                                    <h3><b>What Happens In The Spring Season? Let's Ride Together!</b>
+                                    </h3>
+                                    <p>Spring is one of the four temperate seasons, following winter and preceding
+                                        summer. It is a time of renewal, growth, and vibrant colors as nature awakens
+                                        from the dormancy of winter. In the Northern Hemisphere, spring typically spans
+                                        from March to June, while in the Southern Hemisphere, it occurs from September
+                                        to December. </p>
+
+                                    <a href="spring.html"><button type="button" class="btn btn-outline-danger"
+                                            id="myBtn">Read More</button>
+                                    </a>
+                                </div>
+                                <div class="season-container col-md-6 ">
+                                    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active" data-bs-interval="2000">
+                                                <img src="./images/spring crops/beans.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/spring crops/pumpkin.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/spring crops/eggplant.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/spring crops/sweet corn.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details" id="winter-background">
+                    <div class="details-text">
+                        <div class="big-text">
+                            <p align="center">About</p>
+                            <h3 align="center">Winter Season</h3>
+                        </div>
+                        <div class="landing-text">
+                            <div class="row">
+                                <div class="season-container col-md-6 ">
+                                    <div id="carouselExampleAutoplaying1" class="carousel slide"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active" data-bs-interval="2000">
+                                                <img src="./images/winter crops/carrots.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/winter crops/english peas.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/winter crops/kale.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/winter crops/onions.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/winter crops/red radish.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying1" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 custom-grid">
+                                    <p>Anigye kuayɛ, obiara </p>
+                                    <h3><b>What Happens In The Winter Season? Let's Ride Together!</b>
+                                    </h3>
+                                    <p>Winter is one of the four temperate seasons, characterized by cold temperatures,
+                                        shorter days, and longer nights. It is a time when many regions experience
+                                        snowfall and frost, creating a distinct and often enchanting landscape. In the
+                                        Northern Hemisphere, winter spans from December to February, while in the
+                                        Southern Hemisphere, it occurs from June to August. </p>
+                                    <a href="winter.html"><button type="button" class="btn btn-outline-danger"
+                                            id="myBtn">Read More</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details" id="autumn-background">
+                    <div class="details-text">
+                        <div class="big-text">
+                            <p align="center">About</p>
+                            <h3 align="center">Autumn Season</h3>
+                        </div>
+                        <div class="landing-text">
+                            <div class="row">
+                                <div class="col-md-6 custom-grid">
+                                    <p>खुशहाल खेती, हर कोई</p>
+                                    <h3><b>What Happens In The Autumn Season? Let's Ride Together!</b>
+                                    </h3>
+                                    <p>Autumn, also known as fall, is a transitional season between summer and winter.
+                                        It is characterized by cooler temperatures, shorter days, and the shedding of
+                                        leaves from deciduous trees. In the Northern Hemisphere, autumn typically spans
+                                        from September to November, while in the Southern Hemisphere, it occurs from
+                                        March to May.</p>
+                                    <a href="autumn.html"><button type="button" class="btn btn-outline-danger"
+                                            id="myBtn">Read More</button>
+                                    </a>
+                                </div>
+                                <div class="season-container col-md-6 ">
+                                    <div id="carouselExampleAutoplaying2" class="carousel slide"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/Artichoke.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/Beet.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/KohlRabi.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/moringa.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/Turnip.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/autumn crops/Pak Choi.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying2" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details" id="summer-background">
+                    <div class="details-text">
+                        <div class="big-text">
+                            <p align="center">About</p>
+                            <h3 align="center">Summer Season</h3>
+                        </div>
+                        <div class="landing-text">
+                            <div class="row">
+                                <div class="season-container col-md-6 ">
+                                    <div id="carouselExampleAutoplaying3" class="carousel slide"
+                                        data-bs-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active" data-bs-interval="2000">
+                                                <img src="./images/summer crops/cucumber.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/summer crops/okra.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/summer crops/pepper.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/summer crops/rice.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item" data-bs-interval="2000">
+                                                <img src="./images/summer crops/squash.jpg"
+                                                    class="spring-crop-images d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying3" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button"
+                                            data-bs-target="#carouselExampleAutoplaying3" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 custom-grid">
+                                    <p>Bonne agriculture à tous!</p>
+                                    <h3><b>What Happens In The Summer Season? Let's Ride Together!</b>
+                                    </h3>
+                                    <p>Summer is a season characterized by warm temperatures, longer days, and abundant
+                                        sunlight. It is the third of the four temperate seasons, following spring and
+                                        preceding autumn. In the Northern Hemisphere, summer typically spans from June
+                                        to August, while in the Southern Hemisphere, it occurs from December to
+                                        February. </p>
+                                    <a href="summer.html"><button type="button" class="btn btn-outline-danger"
+                                            id="myBtn">Read
+                                            More</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <script>
+
+            // JavaScript code to fetch the temperature
+            const temperatureElement = document.getElementById('temperature');
+
+            // Replace '123abc', 'Bangalore', and '+91' with your OpenWeatherMap API key, city, and country code
+            const apiKey = '0ccb565aa7a347f86d47f44375b02b02';
+            const city = 'Bangalore';
+            const country = 'India';
+
+            const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const temperature = data.main.temp;
+                    // temperatureElement.textContent = `Current Temperature in ${city}, ${country}: ${temperature}°C`;
+                    temperatureElement.textContent = `Current Temperature in your current location is: ${temperature}°C`;
+
+                })
+                .catch(error => {
+                    console.error('Error fetching temperature:', error);
+                    temperatureElement.textContent = 'Error fetching temperature';
+                });
+
+        </script>
+
+
+
+
+
+        <script>
+            function flipCard(card) {
+                card.classList.toggle('flipped');
+            }
+        </script>
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            const darkModeToggleIcon = document.getElementById('dark-mode-toggle');
+
+            // Toggle dark mode class on body
+            body.classList.toggle('dark-mode');
+
+            // Toggle moon icon class based on dark mode state
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggleIcon.classList.remove('bi-moon');
+                darkModeToggleIcon.classList.add('bi-moon-fill');
+            } else {
+                darkModeToggleIcon.classList.remove('bi-moon-fill');
+                darkModeToggleIcon.classList.add('bi-moon');
+            }
+
+            // Store the dark mode preference in local storage
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Event listener for dark mode toggle button
+        document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
+        // Check local storage for dark mode preference on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            const darkModeToggleIcon = document.getElementById('dark-mode-toggle');
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                darkModeToggleIcon.classList.remove('bi-moon');
+                darkModeToggleIcon.classList.add('bi-moon-fill');
+            } else {
+                darkModeToggleIcon.classList.remove('bi-moon-fill');
+                darkModeToggleIcon.classList.add('bi-moon');
+            }
+        });
+    </script>
+
+
+
+    <!-- translator -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+    <i>
+        <footer class="footer-section container-fluid text-light">
+            <div class="row">
+                <!-- <div class="footer-head col-md-3">
+                <img src="./images/agro_g.png" style="padding-top: 50px;" class="kayybites_footer_logo" alt="Logo">
+                <p style="color: black; font-size: small;" ><br>
+                     Explore our user-friendly platform offering
+                    a wide selection of fruits, flowers, and vegetables, complete with easy-to-use control
+                    mechanisms. </p>
+                <div class="list-unstyled-container">
+                    <p class="small-text" style="color: black;">Follow us for more updates</p>
+                    <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-github github" style="font-size: 20px;"></i></a>
+                </div>
+            </div> -->
+
+                <div class="footer-head col-md-3">
+                    <!-- <h5>Getting Started </h5> -->
+                    <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px;"
+                        class="kayybites_footer_logo" alt="Logo">
+
+                    <div class="list-unstyled-container">
+                        <p style="color: black; font-size: small;"><br>
+                            Your go-to destination for hassle-free horticulture. Explore our user-friendly platform
+                            offering a wide selection of fruits, flowers, and vegetables, complete with easy-to-use
+                            control mechanisms. Discover the perfect plants for every season. Join us and simplify your
+                            farming journey with AgroG.</p>
+                        <!-- <p class="small-text" style="color: black;">Follow us for more updates</p>
+                    <a href=""><i class="bi bi-instagram  instagram" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-twitter twitter" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-facebook facebook" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-youtube youtube" style="font-size: 50px;"></i></a> -->
+                    </div>
+                </div>
+
+                <div class="footer-head col-md-3">
+                    <h5><b>Quick Links</b></h5>
+                    <ul class="list-unstyled">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="product.html">Flora</a></li>
+                        <li><a href="weather forecast.html">Weather Forecast</a></li>
+                        <li><a href="community forum.html">Community Forum</a></li>
+                        <!-- <li><a href="">Getting Started</a></li> -->
+
+                    </ul>
+                </div>
+                <div class="footer-head col-md-3">
+                    <h5><b>Personalized</b></h5>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html">My Account</a></li>
+                        <li><a href="contact.html">Terms And Conditions</a></li>
+                        <li><a href="contact.html">Privacy Policy</a></li>
+                        <!-- <li><a href="contact.html">Settings</a></li>
+                    <li><a href="" id="dark-mode-toggle">Change theme</a></li> -->
+                        <li><a href="index.html">Sign out</a></li>
+                    </ul>
+                </div>
+                <div class="footer-head col-md-3">
+                    <h5><b>Socials</b></h5>
+                    <div class="list-unstyled-container">
+                        <p class="small-text" style="color: black;">Follow us for more updates</p>
+                        <a href=""><i class="bi bi-instagram  instagram" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </i>
+
+
+</body>
+
+</html>
