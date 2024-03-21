@@ -33,6 +33,11 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="contact.css">
     <script src="horti.js"></script>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.6/firebase-auth.js"></script>
+
 </head>
 
 <body>
@@ -97,31 +102,84 @@
                 /* width: 150%; */
                 border-radius: 10%;
                 /* background-color: rgb(225, 13, 13); */
-
             }
         </style>
         <div class="container 1" style="margin-top: 8rem;">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                        <div class="avatarImg">
-                            <img src="./images/avatar.png" id="avatarImg" class="card-img-top"
-                                alt="No Picture Uploaded">
+                      <div class="avatarImg">
+                        <img src="./images/avatar.png" id="avatarImg" class="card-img-top" alt="No Picture Uploaded">
+                      </div>
+                      <div class="card-body" style="color:rgb(35, 33, 33)">
+                        <!-- <h5 class="card-title">User Profile</h5> -->
+                        <p><strong>Name:</strong> <span id="name"></span></p>
+                        <p><strong>Email:</strong> <span id="email"></span></p>
+                        <div class="card">
+                          <div class="card-body">
+                            <h5 class="card-title"><strong>Bio</strong></h5>
+                            <p class="card-text" id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                          </div>
                         </div>
-                        <div class="card-body" style="color:rgb(35, 33, 33)">
-                            <!-- <h5 class="card-title">User Profile</h5> -->
-                            <p><strong>Name:</strong> <span id="name">Alexander Acheampong</span></p>
-                            <p><strong>Email:</strong> <span id="email">alex1@example.com</span></p>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title"><strong>Bio</strong></h5>
-                                    <p class="card-text" id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit.</p>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
                     </div>
-                </div>
+                  </div>
+                
+                  <!-- Include the JavaScript code here -->
+                  <script type="module">
+                    // Import the functions you need from the SDKs you need
+                    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+                    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+                    import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+                    import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+                
+                    const firebaseConfig = {
+                        apiKey: "AIzaSyDZkSheSC3erQVh0OFaHOpyBgTLr-Zemf0",
+                        authDomain: "agrog-ac9d5.firebaseapp.com",
+                        databaseURL: "https://agrog-ac9d5-default-rtdb.firebaseio.com",
+                        projectId: "agrog-ac9d5",
+                        storageBucket: "agrog-ac9d5.appspot.com",
+                        messagingSenderId: "666106586887",
+                        appId: "1:666106586887:web:e0f28eb6fd837ee21e47a2",
+                        measurementId: "G-08ER6YLGEN",
+                    };
+                
+                    // Initialize Firebase
+                    const app = initializeApp(firebaseConfig);
+                    const analytics = getAnalytics(app);
+                    const db = getDatabase();
+                    const auth = getAuth(app);
+                    const dbref = ref(db);
+                
+                    // Check if the user is authenticated
+                    const user = JSON.parse(sessionStorage.getItem('user'));
+                    if (user) {
+                      // User is authenticated
+                      displayUserInfo(user);
+                    } else {
+                      // Redirect to the login page if the user is not authenticated
+                      window.location.href = "login.html";
+                    }
+                
+                    // Function to display user information
+                    fconst nameElement = document.getElementById("name");
+                      unction displayUserInfo(user) {
+                      const emailElement = document.getElementById("email");
+                
+                      if (user && user.displayName) {
+                        nameElement.innerText = user.displayName;
+                      } else {
+                        nameElement.innerText = "Name not available";
+                      }
+                
+                      if (user && user.email) {
+                        emailElement.innerText = user.email;
+                      } else {
+                        emailElement.innerText = "Email not available";
+                      }
+                    }
+                  </script>
+                
                 <div class="col-md-6">
                     <div class="row">
                         <div class="row">
@@ -211,7 +269,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <div class="btn-group w-100">
-                                    <a href="index.html" class="btn btn-outline-danger">Signout</a>
+                                    <a href="login.html" class="btn btn-outline-danger">Signout</a>
                                 </div>
                             </div>
                         </div>
@@ -472,52 +530,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <script>
-                    // Function to display the selected profile picture
-                    function displaySelectedPicture(event) {
-                        var fileInput = event.target;
-                        var file = fileInput.files[0];
-
-                        if (file) {
-                            var reader = new FileReader(); // Create a FileReader object
-
-                            reader.onload = function () {
-                                // Update the avatar image source with the selected image
-                                document.getElementById("avatarImg").src = reader.result;
-
-                                // Display the name of the selected image
-                                document.getElementById("avatarImg").alt = file.name;
-
-                                // Display the content of the selected image (if applicable)
-                                var content = document.getElementById("avatarContent");
-                                content.innerText = "File Content: " + file.name;
-                            }
-
-                            // Read the selected file as a Data URL (base64 encoded string)
-                            reader.readAsDataURL(file);
-                        }
-                    }
-
-                    // Function to handle saving changes (assuming you have only one saveChanges function)
-                    function saveChanges() {
-                        // Retrieve updated values from the form fields
-                        var newName = document.getElementById('newName').value;
-                        var newEmail = document.getElementById('newEmail').value;
-                        var newBio = document.getElementById('newBio').value;
-
-                        // Update the profile display with the new values
-                        document.getElementById('name').innerText = newName;
-                        document.getElementById('email').innerText = newEmail;
-                        document.getElementById('bio').innerText = newBio;
-
-                        // Close the modal
-                        $('#updateModal').modal('hide');
-                    }
-                </script> -->
-
-
-
                 <script>
                     // Function to display the selected profile picture
                     function displaySelectedPicture() {
@@ -657,21 +669,6 @@
         <i>
             <footer class="footer-section container-fluid text-light" style="margin-top: 5%;">
                 <div class="row">
-                    <!-- <div class="footer-head col-md-3">
-                    <img src="./images/agro_g.png" style="padding-top: 50px;" class="kayybites_footer_logo" alt="Logo">
-                    <p style="color: black; font-size: small;" ><br>
-                         Explore our user-friendly platform offering
-                        a wide selection of fruits, flowers, and vegetables, complete with easy-to-use control
-                        mechanisms. </p>
-                    <div class="list-unstyled-container">
-                        <p class="small-text" style="color: black;">Follow us for more updates</p>
-                        <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-github github" style="font-size: 20px;"></i></a>
-                    </div>
-                </div> -->
 
                     <div class="footer-head col-md-3">
                         <!-- <h5>Getting Started </h5> -->
@@ -685,11 +682,7 @@
                                 control mechanisms. Discover the perfect plants for every season. Join us and simplify
                                 your
                                 farming journey with AgroG.</p>
-                            <!-- <p class="small-text" style="color: black;">Follow us for more updates</p>
-                        <a href=""><i class="bi bi-instagram  instagram" style="font-size: 50px;"></i></a>
-                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 50px;"></i></a>
-                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 50px;"></i></a>
-                        <a href=""><i class="bi bi-youtube youtube" style="font-size: 50px;"></i></a> -->
+        
                         </div>
                     </div>
 
@@ -710,8 +703,7 @@
                             <li><a href="contact.html">My Account</a></li>
                             <li><a href="contact.html">Terms And Conditions</a></li>
                             <li><a href="contact.html">Privacy Policy</a></li>
-                            <!-- <li><a href="contact.html">Settings</a></li>
-                        <li><a href="" id="dark-mode-toggle">Change theme</a></li> -->
+
                             <li><a href="index.html">Sign out</a></li>
                         </ul>
                     </div>
