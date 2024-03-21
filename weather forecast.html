@@ -468,8 +468,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const temperature = data.main.temp;
-                    // temperatureElement.textContent = `Current Temperature in ${city}, ${country}: ${temperature}°C`;
-                    temperatureElement.textContent = `Current Temperature in your current location is: ${temperature}°C`;
+                    temperatureElement.textContent = `Current Temperature in ${city}, ${country}: ${temperature}°C`;
 
                 })
                 .catch(error => {
