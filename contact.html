@@ -179,19 +179,20 @@
                         }
                     }
 
-                        // Sign out functionality
+                     // Event listener for the Sign Out button
                     const signOutBtn = document.getElementById("signOutBtn");
                     signOutBtn.addEventListener("click", () => {
                         auth.signOut().then(() => {
-                            // Sign-out successful.
-                            sessionStorage.removeItem('user');
-                            // window.location.href = "login.html";
+                            // Sign-out successful
+                            console.log("User signed out successfully.");
+                            sessionStorage.removeItem('user'); // Optionally remove user data from sessionStorage
+                            window.location.href = "login.html"; // Redirect to the login page
                         }).catch((error) => {
-                            // An error happened.
+                            // An error occurred
                             console.error("Error signing out:", error);
                         });
                     });
-                </script>
+                                </script>
                              
                 <div class="col-md-6">
                     <div class="row">
