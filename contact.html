@@ -110,25 +110,25 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
-                      <div class="avatarImg">
-                        <img src="./images/avatar.png" id="avatarImg" class="card-img-top" alt="No Picture Uploaded">
-                      </div>
-                      <div class="card-body" style="color:rgb(35, 33, 33)">
-                        <!-- <h5 class="card-title">User Profile</h5> -->
-                        <p><strong>Name:</strong> <span id="name"></span></p>
-                        <p><strong>Email:</strong> <span id="email"></span></p>
-                        <div class="card">
-                          <div class="card-body">
-                            <h5 class="card-title"><strong>Bio</strong></h5>
-                            <p class="card-text" id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                          </div>
+                        <div class="avatarImg">
+                            <img src="./images/avatar.png" id="avatarImg" class="card-img-top" alt="No Picture Uploaded">
                         </div>
-                      </div>
+                        <div class="card-body" style="color:rgb(35, 33, 33)">
+                            <!-- <h5 class="card-title">User Profile</h5> -->
+                            <p><strong>Name:</strong> <span id="name"></span></p>
+                            <p><strong>Email:</strong> <span id="email"></span></p>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title"><strong>Bio</strong></h5>
+                                    <p class="card-text" id="bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+                </div>
                 
-                  <!-- Include the JavaScript code here -->
-                  <script type="module">
+                <!-- Include the JavaScript code here -->
+                <script type="module">
                     // Import the functions you need from the SDKs you need
                     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
                     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
@@ -155,33 +155,42 @@
                 
                     // Check if the user is authenticated
                     const user = JSON.parse(sessionStorage.getItem('user'));
-                    if (user) {
-                      // User is authenticated
-                      displayUserInfo(user);
-                    } else {
-                      // Redirect to the login page if the user is not authenticated
-                      window.location.href = "login.html";
+                    if (!user) {
+                        // Redirect to the login page if the user is not authenticated
+                        window.location.href = "login.html";
                     }
                 
                     // Function to display user information
-                    fconst nameElement = document.getElementById("name");
-                      unction displayUserInfo(user) {
-                      const emailElement = document.getElementById("email");
+                    const nameElement = document.getElementById("name");
+                    const emailElement = document.getElementById("email");
+                    if (user) {
+                        if (user.displayName) {
+                            nameElement.innerText = user.displayName;
+                        } else {
+                            nameElement.innerText = "Name not available";
+                        }
                 
-                      if (user && user.displayName) {
-                        nameElement.innerText = user.displayName;
-                      } else {
-                        nameElement.innerText = "Name not available";
-                      }
-                
-                      if (user && user.email) {
-                        emailElement.innerText = user.email;
-                      } else {
-                        emailElement.innerText = "Email not available";
-                      }
+                        if (user.email) {
+                            emailElement.innerText = user.email;
+                        } else {
+                            emailElement.innerText = "Email not available";
+                        }
                     }
-                  </script>
-                
+
+                        // Sign out functionality
+                    const signOutBtn = document.getElementById("signOutBtn");
+                    signOutBtn.addEventListener("click", () => {
+                        auth.signOut().then(() => {
+                            // Sign-out successful.
+                            sessionStorage.removeItem('user');
+                            // window.location.href = "login.html";
+                        }).catch((error) => {
+                            // An error happened.
+                            console.error("Error signing out:", error);
+                        });
+                    });
+                </script>
+                             
                 <div class="col-md-6">
                     <div class="row">
                         <div class="row">
