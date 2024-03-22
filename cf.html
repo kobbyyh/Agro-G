@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agroculture | Community Forum</title>
+    <title>Agroculture | CF</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png">
@@ -116,7 +116,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Start a Conversation</h5>
                                 <textarea class="form-control mb-3" id="new-post-text" rows="3"
-                                    placeholder="Type your message here..."></textarea>
+                                    placeholder="Type your message here..." ></textarea>
                                 <button class="btn btn-primary" onclick="addPost()">Post</button>
                                 <button id="deleteAllPostsBtn" class="btn btn-danger">Delete All Posts</button>
                                 <script>
@@ -188,8 +188,6 @@
                             createPost(newPostText, defaultUserName);
                         });
                 }
-
-
             </script>
 
 
@@ -340,6 +338,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Post List -->
     <div class="container mt-5">
         <div class="row">
@@ -438,9 +437,10 @@
         
     </script>
     
+    
     <script>
-// Function to handle form submission
-document.getElementById("postForm").addEventListener("submit", function (event) {
+    // Function to handle form submission
+    document.getElementById("postForm").addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent default form submission
 
     // Get form values
@@ -449,8 +449,8 @@ document.getElementById("postForm").addEventListener("submit", function (event) 
     var description = document.getElementById("description").value;
 
     // Read the image file as a base64 encoded string
-    var reader = new FileReader();
-    reader.onload = function(event) {
+         var reader = new FileReader();
+        reader.onload = function(event) {
         var imageData = event.target.result;
 
         // Check if the post already exists in local storage
