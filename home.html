@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture | Home</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="horti.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- <include src="master.html"></include> -->
+
+    <div class="pager">
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="navigation container-fluid">
+
+                <img src="./images/agro_g.png" style="width:150px" class="kayybites_logo d-inline-block align-top"
+                    alt="Logo">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#"><b>Home</b></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="product.html">Flora</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="weather forecast.html">Weather Forecast</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="community forum.html">Community Forum</a>
+                        </li>
+                    </ul>
+                    <div class="navbar-svg">
+                        <a href="contact.html" type="button" class="btn btn-outline-danger mr-2" id="myBtn">
+                            Dashboard
+                        </a>
+                        <i class="bi bi-moon" style="color:rgb(183, 155, 63);font-size: 20px; margin-right: 10px;"
+                            id="dark-mode-toggle"></i>
+
+                        <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                        <a href="index.html"><i class="bi bi-person-circle" style="font-size: 20px;"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div class="landing-page">
+            <div class="landing-text">
+                <div class="row">
+                    <div class="col-md-6 custom-grid">
+                        <p>Happy Farming, Everyone!</p>
+                        <h3><b>Cultivating Dreams, Nurturing Growth: Your Horticultural Haven Awaits</b> </h3>
+                        <p>Step into a haven where dreams take root and growth blossoms. Our sanctuary is a canvas for
+                            cultivating passions, nurturing life, and creating a vibrant horticultural experience. <br>
+                            Join
+                            us in sowing the seeds of aspirations, where every plant tells a unique story, and every
+                            bloom reflects the care it receives. In this community of enthusiasts, find solace, engage
+                            in learning, and let your journey in horticulture be a celebration of life. <br><b>Welcome
+                                To Your
+                                Own Green Retreat.</b></p>
+                    </div>
+                    <div class="self-container col-md-6 ">
+
+                        <img id="profileImage" src="./images/farmer1.jpg" class="img-fluid custom-image-size"
+                            alt="Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script> -->
+
+        <div class="details">
+            <div class="details-text">
+                <div class="row">
+                    <div class="col-md-6 custom-grid">
+                        <img id="" src="./images/cannabis.png" width="500" height="550"
+                            class="img-fluid custom-image-size" alt="Image">
+                    </div>
+
+                    <div class="self-container col-md-6 ">
+                        <p>Plant Of The Week</p>
+                        <h3><b>Cannabais Sativa</b></h3>
+                        <p>Cannabis sativa, commonly known as marijuana or hemp, has a long
+                            history of human use that dates back thousands of years. Its use
+                            can be traced to ancient civilizations, where it was employed
+                            for medicinal, religious, and recreational purposes.</p>
+
+                        <button type="button" class="btn btn-outline-danger" id="myBtn" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal11">
+                            Read More
+                        </button>
+
+                        <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel11">Plant Of The Week
+                                        </h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal1"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Cannabis sativa, commonly known as marijuana or hemp, has a long
+                                        history of human use that dates back thousands of years. Its use
+                                        can be traced to ancient civilizations, where it was employed
+                                        for medicinal, religious, and recreational purposes. <br>
+                                        Cannabis
+                                        has been utilized by various cultures, including the ancient
+                                        Chinese, Indian, Egyptian, and Greek civilizations. Its
+                                        psychoactive properties, documented in historical texts, have
+                                        made it a subject of intrigue and exploration.
+
+
+                                        Medicinal Uses: Cannabis sativa has been used for various
+                                        medicinal purposes. Compounds known as cannabinoids, such as THC
+                                        (tetrahydrocannabinol) and CBD (cannabidiol), are found in the
+                                        plant. These compounds interact with the endocannabinoid system
+                                        in the human body, influencing various physiological functions.
+                                        Medical marijuana is now legal in many places, and it is used to
+                                        alleviate symptoms of conditions like chronic pain, nausea, and
+                                        muscle spasms. <br><br>
+
+                                        Industrial Uses: Hemp, a variety of Cannabis sativa, is
+                                        particularly valued for its industrial applications. Hemp fibers
+                                        are strong and durable, making them suitable for the production
+                                        of textiles, ropes, and paper. Hemp seeds are a rich source of
+                                        nutrition, containing essential fatty acids and proteins. Hemp
+                                        oil is also used in various industrial and cosmetic products.
+                                        <br><br>
+
+                                        Recreational Use: Cannabis sativa is well-known for its
+                                        psychoactive properties, and it has been used recreationally for
+                                        centuries. Its use for recreational purposes, often in the form
+                                        of smoking or vaping, remains a topic of debate and legal
+                                        regulation in many parts of the world.
+
+
+                                        Cannabis sativa belongs to the Cannabaceae family. The
+                                        Cannabaceae family includes several other plants, but Cannabis
+                                        is the most well-known genus within this family. <br>There are
+                                        three
+                                        primary species of Cannabis: Cannabis sativa, Cannabis indica,
+                                        and Cannabis ruderalis. While all three species share the same
+                                        genus, they exhibit distinct characteristics, especially in
+                                        terms of growth patterns, appearance, and chemical composition.
+
+
+                                        Legal Status: The legal status of Cannabis sativa varies
+                                        globally, with some regions allowing its use for medical and/or
+                                        recreational purposes, while others strictly prohibit it. The
+                                        evolving legal landscape has led to increased research into its
+                                        potential benefits and risks. <br><br>
+
+                                        Cultural Impact: Cannabis has had a significant cultural impact,
+                                        inspiring art, literature, and music. It has been both
+                                        celebrated and stigmatized, reflecting changing societal
+                                        attitudes over time. <br><br>
+
+                                        Ongoing Research: Ongoing research continues to explore the
+                                        therapeutic potential of cannabinoids and the various compounds
+                                        present in Cannabis sativa. This includes investigations into
+                                        its potential role in managing chronic conditions and its impact
+                                        on mental health.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="svg-container mt-3">
+                            <div class="svg-services row">
+                                <div class="col-md-6 col-sm-6">
+                                    <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                                        <img src="./images/history.png"
+                                            style="height:30%; margin-left: 10px;margin-right: 10px;margin-top: 10px;"
+                                            class="SVG-Image ">
+                                        <br>
+                                        <p>History</p>
+
+
+                                        <div class="modal fade" id="exampleModal1" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel1">History
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal1"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Cannabis sativa, commonly known as marijuana or hemp, has a long
+                                                        history of human use that dates back thousands of years. Its use
+                                                        can be traced to ancient civilizations, where it was employed
+                                                        for medicinal, religious, and recreational purposes. <br>
+                                                        Cannabis
+                                                        has been utilized by various cultures, including the ancient
+                                                        Chinese, Indian, Egyptian, and Greek civilizations. Its
+                                                        psychoactive properties, documented in historical texts, have
+                                                        made it a subject of intrigue and exploration.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                                        <img src="./images/use.png"
+                                            style="height:30%; margin-left: 10px;margin-right: 10px;margin-top: 10px;"
+                                            class="SVG-Image ">
+                                        <br>
+                                        <p>Importance</p>
+
+                                        <div class="modal fade" id="exampleModal2" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel2">Importance
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal2"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Medicinal Uses: Cannabis sativa has been used for various
+                                                        medicinal purposes. Compounds known as cannabinoids, such as THC
+                                                        (tetrahydrocannabinol) and CBD (cannabidiol), are found in the
+                                                        plant. These compounds interact with the endocannabinoid system
+                                                        in the human body, influencing various physiological functions.
+                                                        Medical marijuana is now legal in many places, and it is used to
+                                                        alleviate symptoms of conditions like chronic pain, nausea, and
+                                                        muscle spasms. <br><br>
+
+                                                        Industrial Uses: Hemp, a variety of Cannabis sativa, is
+                                                        particularly valued for its industrial applications. Hemp fibers
+                                                        are strong and durable, making them suitable for the production
+                                                        of textiles, ropes, and paper. Hemp seeds are a rich source of
+                                                        nutrition, containing essential fatty acids and proteins. Hemp
+                                                        oil is also used in various industrial and cosmetic products.
+                                                        <br><br>
+
+                                                        Recreational Use: Cannabis sativa is well-known for its
+                                                        psychoactive properties, and it has been used recreationally for
+                                                        centuries. Its use for recreational purposes, often in the form
+                                                        of smoking or vaping, remains a topic of debate and legal
+                                                        regulation in many parts of the world.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                                        <img src="./images/family.png"
+                                            style="height:30%; margin-left: 10px;margin-right: 10px;margin-top: 10px;"
+                                            class="SVG-Image ">
+                                        <br>
+                                        <p>Family</p>
+
+                                        <div class="modal fade" id="exampleModal3" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel3">Family
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal3"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Cannabis sativa belongs to the Cannabaceae family. The
+                                                        Cannabaceae family includes several other plants, but Cannabis
+                                                        is the most well-known genus within this family. <br>There are
+                                                        three
+                                                        primary species of Cannabis: Cannabis sativa, Cannabis indica,
+                                                        and Cannabis ruderalis. While all three species share the same
+                                                        genus, they exhibit distinct characteristics, especially in
+                                                        terms of growth patterns, appearance, and chemical composition.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                                        <img src="./images/other info.png"
+                                            style="height:30%; margin-left: 10px;margin-right: 10px;margin-top: 10px;"
+                                            class="SVG-Image ">
+                                        <br>
+                                        <p>Other Info</p>
+
+                                        <div class="modal fade" id="exampleModal4" tabindex="-1"
+                                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="exampleModalLabel4">Other Info
+                                                        </h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal4"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Legal Status: The legal status of Cannabis sativa varies
+                                                        globally, with some regions allowing its use for medical and/or
+                                                        recreational purposes, while others strictly prohibit it. The
+                                                        evolving legal landscape has led to increased research into its
+                                                        potential benefits and risks. <br><br>
+
+                                                        Cultural Impact: Cannabis has had a significant cultural impact,
+                                                        inspiring art, literature, and music. It has been both
+                                                        celebrated and stigmatized, reflecting changing societal
+                                                        attitudes over time. <br><br>
+
+                                                        Ongoing Research: Ongoing research continues to explore the
+                                                        therapeutic potential of cannabinoids and the various compounds
+                                                        present in Cannabis sativa. This includes investigations into
+                                                        its potential role in managing chronic conditions and its impact
+                                                        on mental health.
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-latest-news">
+            <div class="latest-news">
+                <div class="big-text">
+                    <p align="center">Trends</p>
+                    <h3 align="center">Latest News And Articles</h3>
+                </div>
+                <div class="row" style="padding-top: 5rem;">
+                    <div class="col-md-4">
+                        <div class="card" style="background-color: beige;">
+                            <img src="./images/rare1.jpg " class="card-img-top trends-img " alt="Normal Image">
+                            <div class="card-body" style="color:red">
+                                <h4>Rare and Exotic Plants</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">The fascination with rare and exotic plants will continue to grow
+                                    in 2023. Plant collectors and enthusiasts will seek out unique and hard-to-find
+                                    specimens to add to their collections. Rare orchids, carnivorous plants like the
+                                    Venus flytrap, and uncommon succulents such as the lithops (living stones) will be
+                                    in high demand.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card"style="background-color: beige;">
+                            <img src="./images/kentia palm.jfif" class="card-img-top trends-img" alt="Stretched Image">
+                            <div class="card-body" style="color:rgb(219, 153, 54)">
+                                <h4>Indoor Trees and Statement Plants</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p class="card-text">Large indoor plants, often referred to as "indoor trees," will take
+                                    center stage in interior decor trends for 2023. These statement plants add a touch
+                                    of drama and elegance to any space. Popular choices include fiddle leaf figs,
+                                    monstera deliciosa, and palm varieties like the areca palm or kentia palm.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card"style="background-color: beige;">
+                            <img src="./images/calathea.jpg" class="card-img-top trends-img" alt="Normal Image">
+                            <div class="card-body" style="color:green">
+                                <h4>Unusual Foliage</h4>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"> </h5>
+                                <p class="card-text">In 2023, plant enthusiasts will gravitate towards plants with
+                                    distinctive foliage. Unique patterns, textures, and colors will be highly sought
+                                    after. Varieties like calathea with their intricate leaf patterns, philodendron pink
+                                    princess with its stunning pink and green foliage, or begonia rex with its vibrant
+                                    and textured leaves are anticipated to be popular choices.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const body = document.body;
+            const darkModeToggleIcon = document.getElementById('dark-mode-toggle');
+
+            // Toggle dark mode class on body
+            body.classList.toggle('dark-mode');
+
+            // Toggle moon icon class based on dark mode state
+            if (body.classList.contains('dark-mode')) {
+                darkModeToggleIcon.classList.remove('bi-moon');
+                darkModeToggleIcon.classList.add('bi-moon-fill');
+            } else {
+                darkModeToggleIcon.classList.remove('bi-moon-fill');
+                darkModeToggleIcon.classList.add('bi-moon');
+            }
+
+            // Store the dark mode preference in local storage
+            const isDarkMode = body.classList.contains('dark-mode');
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        // Event listener for dark mode toggle button
+        document.getElementById('dark-mode-toggle').addEventListener('click', toggleDarkMode);
+
+        // Check local storage for dark mode preference on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            const darkModeToggleIcon = document.getElementById('dark-mode-toggle');
+
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                darkModeToggleIcon.classList.remove('bi-moon');
+                darkModeToggleIcon.classList.add('bi-moon-fill');
+            } else {
+                darkModeToggleIcon.classList.remove('bi-moon-fill');
+                darkModeToggleIcon.classList.add('bi-moon');
+            }
+        });
+    </script>
+    <!-- translator -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+        }
+    </script>
+
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+
+        <i>
+            <footer class="footer-section container-fluid text-light">
+                <div class="row">
+                    <!-- <div class="footer-head col-md-3">
+                <img src="./images/agro_g.png" style="padding-top: 50px;" class="kayybites_footer_logo" alt="Logo">
+                <p style="color: black; font-size: small;" ><br>
+                     Explore our user-friendly platform offering
+                    a wide selection of fruits, flowers, and vegetables, complete with easy-to-use control
+                    mechanisms. </p>
+                <div class="list-unstyled-container">
+                    <p class="small-text" style="color: black;">Follow us for more updates</p>
+                    <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
+                        <a href=""><i class="bi bi-github github" style="font-size: 20px;"></i></a>
+                </div>
+            </div> -->
+    
+                    <div class="footer-head col-md-3">
+                        <!-- <h5>Getting Started </h5> -->
+                        <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px;"
+                            class="kayybites_footer_logo" alt="Logo">
+    
+                        <div class="list-unstyled-container">
+                            <p style="color: black; font-size: small;"><br>
+                                Your go-to destination for hassle-free horticulture. Explore our user-friendly platform
+                                offering a wide selection of fruits, flowers, and vegetables, complete with easy-to-use
+                                control mechanisms. Discover the perfect plants for every season. Join us and simplify your
+                                farming journey with AgroG.</p>
+                            <!-- <p class="small-text" style="color: black;">Follow us for more updates</p>
+                    <a href=""><i class="bi bi-instagram  instagram" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-twitter twitter" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-facebook facebook" style="font-size: 50px;"></i></a>
+                    <a href=""><i class="bi bi-youtube youtube" style="font-size: 50px;"></i></a> -->
+                        </div>
+                    </div>
+    
+                    <div class="footer-head col-md-3">
+                        <h5><b>Quick Links</b></h5>
+                        <ul class="list-unstyled">
+                            <li><a href="home.html">Home</a></li>
+                            <li><a href="product.html">Flora</a></li>
+                            <li><a href="weather forecast.html">Weather Forecast</a></li>
+                            <li><a href="community forum.html">Community Forum</a></li>
+                            <!-- <li><a href="">Getting Started</a></li> -->
+    
+                        </ul>
+                    </div>
+                    <div class="footer-head col-md-3">
+                        <h5><b>Personalized</b></h5>
+                        <ul class="list-unstyled">
+                            <li><a href="contact.html">My Account</a></li>
+                            <li><a href="contact.html">Terms And Conditions</a></li>
+                            <li><a href="contact.html">Privacy Policy</a></li>
+                            <!-- <li><a href="contact.html">Settings</a></li>
+                    <li><a href="" id="dark-mode-toggle">Change theme</a></li> -->
+                            <li><a href="index.html">Sign out</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-head col-md-3">
+                        <h5><b>Socials</b></h5>
+                        <div class="list-unstyled-container">
+                            <p class="small-text" style="color: black;">Follow us for more updates</p>
+                            <a href=""><i class="bi bi-instagram  instagram" style="font-size: 20px;"></i></a>
+                            <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
+                            <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
+                            <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </i>
+
+        
+</body>
+
+</html>
