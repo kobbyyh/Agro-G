@@ -167,13 +167,19 @@
         );
       }
     </script>
-
     <script type="module" defer>
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
-      import { getDatabase, set, ref} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
-      import { getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+      import {
+        getDatabase,
+        set,
+        ref,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+      import {
+        getAuth,
+        createUserWithEmailAndPassword,
+      } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyDZkSheSC3erQVh0OFaHOpyBgTLr-Zemf0",
@@ -201,17 +207,27 @@
 
       let RegisterUser = (evt) => {
         evt.preventDefault();
-        // console.log("First Name Input Field Value:", FnameInp.value);
+        console.log(
+          EmailInp.value,
+          PasswordInp.value,
+          FnameInp.value,
+          LnameInp.value,
+          BioInp.value
+        );
 
         createUserWithEmailAndPassword(auth, EmailInp.value, PasswordInp.value)
-          .then((credentials) => {
+          .then(async (credentials) => {
             // Save user data to database
-            set(ref(db, 'UsersAuthList/' + credentials.user.uid), {
+            const firstName = FnameInp.value;
+            await set(ref(db, `users/${credentials.user.uid}`), {
               email: EmailInp.value,
-              firstName: FnameInp.value,
+              firstName: firstName,
               lastName: LnameInp.value,
               bio: BioInp.value,
             });
+
+            
+
             // Clear form fields
             EmailInp.value = "";
             PasswordInp.value = "";
@@ -220,15 +236,12 @@
             BioInp.value = "";
 
             // Display success message
-            const user = credentials.user;
-            const firstName = FnameInp.value;
-            alert(
-              `Thank you ${FnameInp.value}! Your account has been created.`
-            );
+            const user = credentials.users;
+
+            alert(`Thank you ${firstName}! Your account has been created.`);
             console.log(credentials);
-          })
-          .then(() => {
-            window.location.href = "login.html";
+
+            return (window.location.href = "login.html");
           })
           .catch((error) => {
             alert("Error: " + error.message);
