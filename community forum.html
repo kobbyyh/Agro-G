@@ -12,10 +12,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png">
     <link rel="manifest" href="/site.webmanifest">
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script> -->
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -33,7 +29,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -64,9 +59,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="product.html">Flora</a>
                         </li>
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="pests and disease.html">Pests and Diseases</a>
-                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link" href="weather forecast.html">Weather Forecast</a>
                         </li>
@@ -91,11 +83,9 @@
             </div>
         </nav>
 
-
-
         <!-- Forum Content -->
         <div class="container forum-container mt-5">
-            <h2>My Timeline</h2>
+            <h2 style="padding-top: 50px;">My Timeline</h2>
 
             <!-- Announcement Section -->
             <div class="announcement-section">
@@ -107,47 +97,6 @@
 
 
 
-
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-4">
-                        <!-- New Post Form -->
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Start a Conversation</h5>
-                                <textarea class="form-control mb-3" id="new-post-text" rows="3"
-                                    placeholder="Type your message here..."></textarea>
-                                <button class="btn btn-primary" onclick="addPost()">Post</button>
-                                <button id="deleteAllPostsBtn" class="btn btn-danger">Delete All Posts</button>
-                                <script>
-                                    //  <!--delete the entire posts made  -->
-                                    // Add event listener to the delete all posts button
-                                    document.getElementById("deleteAllPostsBtn").addEventListener("click", function () {
-                                        // Prompt the user for confirmation
-                                        var confirmation = confirm("Are you sure you want to delete all your posts?");
-
-                                        // If user confirms, delete all posts
-                                        if (confirmation) {
-                                            // Remove all posts from the DOM
-                                            var postsContainer = document.getElementById("posts-container");
-                                            postsContainer.innerHTML = "";
-                                            // Clear posts from local storage
-                                            localStorage.removeItem("posts");
-                                        }
-                                    });
-
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="posts-container" id="posts-container"></div>
-                    </div>
-
-                </div>
-            </div>
-
-
             <style>
                 /* Custom CSS */
                 .posts-container {
@@ -155,200 +104,7 @@
                 }
             </style>
 
-
-            <script>
-                function addPost() {
-                    // Get the text of the new post
-                    var newPostText = document.getElementById("new-post-text").value;
-
-                    // Fetch the content of contact.html to extract the username
-                    fetch('contact.html')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
-                        })
-                        .then(html => {
-                            // Create a temporary element to hold the HTML content
-                            const tempElement = document.createElement('div');
-                            tempElement.innerHTML = html;
-
-                            // Use DOM manipulation techniques to extract the username from the HTML content
-                            const nameElement = tempElement.querySelector('#name'); // Using the ID 'name' to select the element
-                            const userName = nameElement.textContent.trim(); // Extract the text content of the element and trim any leading/trailing whitespace
-
-                            // Use the extracted username to create the new post element
-                            createPost(newPostText, userName);
-                        })
-                        .catch(error => {
-                            console.error('Error fetching or extracting username:', error);
-                            // If there's an error, fall back to a default username
-                            const defaultUserName = "Alex";
-                            createPost(newPostText, defaultUserName);
-                        });
-                }
-
-
-            </script>
-
-
-            <!-- start a conversation -->
-            <script>
-                // Function to create a new post element
-                function createPost(newPostText, userName) {
-                    // Dummy user profile picture URL
-                    var userProfilePicture = "./images/avatar.png";
-
-                    // Create a new post element
-                    var postElement = document.createElement("div");
-                    postElement.classList.add("card", "mb-3");
-                    postElement.innerHTML = `
-                        <div class="card-body">
-                            <img src="${userProfilePicture}" class="rounded-circle" width="30" height="30" alt="">
-                            <span class="fw-bold">${userName}</span>
-                            <p class="card-text">${newPostText}</p>
-                            <div class="post-info">
-                                <small class="text-muted">Last post: ${getCurrentDateTime()}</small>
-                                <span class="badge bg-secondary">Likes: 0</span>
-                                <span class="badge bg-secondary">Shares: 0</span>
-                                <span class="badge bg-secondary">Articles: 0</span>
-                                <button class="btn btn-danger btn-sm delete-post">Delete</button>
-                            </div>
-                        </div>`;
-
-                    // Add event listener to delete button
-                    var deleteButton = postElement.querySelector('.delete-post');
-                    deleteButton.addEventListener('click', function () {
-                        deletePost(postElement);
-                    });
-
-                    // Add the new post to the posts container
-                    var postsContainer = document.getElementById("posts-container");
-                    postsContainer.prepend(postElement);
-
-                    // Clear the textarea
-                    document.getElementById("new-post-text").value = "";
-
-                    // Save the post to local storage
-                    savePostToLocalStorage(newPostText, userName);
-                }
-
-                // Function to delete a post
-                function deletePost(postElement) {
-                    postElement.remove();
-
-                    // Remove the post from local storage
-                    var posts = JSON.parse(localStorage.getItem("posts")) || [];
-                    var postId = postElement.id;
-                    posts = posts.filter(post => post.id !== postId);
-                    localStorage.setItem("posts", JSON.stringify(posts));
-                }
-
-                // Function to save the post to local storage
-                function savePostToLocalStorage(newPostText, userName) {
-                    var posts = JSON.parse(localStorage.getItem("posts")) || [];
-                    var post = {
-                        newPostText: newPostText,
-                        userName: userName,
-                        dateTime: getCurrentDateTime()
-                    };
-                    posts.push(post);
-                    localStorage.setItem("posts", JSON.stringify(posts));
-                }
-
-                // Function to load posts from local storage
-                function loadPostsFromLocalStorage() {
-                    var posts = JSON.parse(localStorage.getItem("posts")) || [];
-                    posts.forEach(function (post) {
-                        createPost(post.newPostText, post.userName);
-                    });
-                }
-
-                // Function to get current date and time
-                function getCurrentDateTime() {
-                    var now = new Date();
-                    var options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
-                    return now.toLocaleDateString('en-US', options);
-                }
-
-                // Load posts from local storage when the page is loaded
-                window.addEventListener("load", function () {
-                    loadPostsFromLocalStorage();
-                });
-            </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Upcoming Events Section -->
-            <div class="announcement-section">
-                <!-- <h4>Your Articles</h4> -->
-                <!-- <div class="row">
-                    
-
-                    <div class="card col-md-6 col-sm-6">
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                    </div>
-
-                    <div class="card col-md-6 col-sm-6">
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Gardening Workshop</h5>
-                            <p class="card-text">Join us for an interactive online gardening workshop. <br> Date:
-                                December
-                                31st 2023</p>
-
-                            <a href="#" class="btn btn-primary">Join</a>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
 
 
             <div class="col-md-8">
@@ -359,7 +115,7 @@
                             <div class="mb-3">
                                 <label for="title" class="form-label">Title:</label>
                                 <input type="text" class="form-control" id="title"
-                                    placeholder="The name of your flora item." name="title" required>
+                                    placeholder="The name of your flora item." name="title">
                             </div>
                             <div class="mb-3">
                                 <label for="image" class="form-label">Upload Image:</label>
@@ -380,19 +136,24 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Post List -->
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col">
-                <h2> Your Posts</h2>
-                <div id="postList"></div>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="row">
+                    <h2>Your Posts</h2>
+                    <div id="postList"></div>
+                </div>
             </div>
         </div>
+
     </div>
 
+    <!-- Post List -->
 
-    <!-- <script>
+
+
+
+    <script>
         // Function to handle form submission
         document.getElementById("postForm").addEventListener("submit", function (event) {
             event.preventDefault(); // Prevent default form submission
@@ -402,81 +163,87 @@
             var image = document.getElementById("image").files[0];
             var description = document.getElementById("description").value;
 
-            // Create new post element
-            var post = document.createElement("div");
-            post.classList.add("card", "mb-3");
-            post.innerHTML = `
-                <div class="card-header">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="card-title">${title}</h5>
-                        <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">
-                            <i class="bi bi-trash-fill" style="font-size: 20px;"></i></button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="card-text">${description}</p>
-                        </div>
-                        <div class="col-md-6">
-                            <img src="${URL.createObjectURL(image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                        </div>
-                    </div>
-                </div>
-            `;
+            // Read the image file as a base64 encoded string
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                var imageData = event.target.result;
 
-            // Append post to post list
-            document.getElementById("postList").appendChild(post);
+                // Check if the post already exists in local storage
+                var posts = JSON.parse(localStorage.getItem("posts")) || [];
+                var existingPost = posts.find(function (post) {
+                    return post.title === title && post.description === description && post.image === imageData;
+                });
 
-            // Clear form fields
-            document.getElementById("title").value = "";
-            document.getElementById("image").value = "";
-            document.getElementById("description").value = "";
+                // If the post doesn't already exist and image data is available, add it
+                if (!existingPost && imageData) {
+                    var post = {
+                        title: title,
+                        description: description,
+                        image: imageData
+                    };
 
-            // Save draft to sessionStorage
-            saveDraft(title, description, image);
+                    // Create new post element
+                    var postElement = createPostElement(post);
+
+                    // Append post to post list
+                    document.getElementById("postList").appendChild(postElement);
+
+                    // Save post data to local storage
+                    posts.push(post);
+                    localStorage.setItem("posts", JSON.stringify(posts));
+                }
+            };
+            // Check if image is selected
+            if (image) {
+                reader.readAsDataURL(image);
+            }
         });
 
-        // Function to save draft to sessionStorage
-        function saveDraft(title, description, image) {
-            var drafts = JSON.parse(sessionStorage.getItem("drafts")) || [];
-            drafts.push({ title: title, description: description, image: image });
-            sessionStorage.setItem("drafts", JSON.stringify(drafts));
+        // Function to create post element
+        function createPostElement(post) {
+            var postElement = document.createElement("div");
+            postElement.classList.add("card", "mb-3");
+            postElement.innerHTML = `
+        <div class="card-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="card-title"><b>${post.title}</b></h5>
+                <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">Delete</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="card-text">${post.description}</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="${post.image}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
+                </div>
+            </div>
+        </div>
+    `;
+            return postElement;
         }
 
-        // Function to load drafts from sessionStorage
-        function loadDrafts() {
-            var drafts = JSON.parse(sessionStorage.getItem("drafts")) || [];
-            drafts.forEach(function (draft) {
-                var post = document.createElement("div");
-                post.classList.add("card", "mb-3");
-                post.innerHTML = `
-                    <div class="card-header">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h5 class="card-title">${draft.title}</h5>
-                            <button type="button" class="btn btn-sm btn-danger" onclick="deletePost(this)">Delete</button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <p class="card-text">${draft.description}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <img src="${URL.createObjectURL(draft.image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                            </div>
-                        </div>
-                    </div>
-                `;
-                document.getElementById("postList").appendChild(post);
+        // Function to load posts from local storage
+        function loadPosts() {
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            posts.forEach(function (post) {
+                // Check if image data is available
+                if (post.image) {
+                    var postElement = createPostElement(post);
+                    document.getElementById("postList").appendChild(postElement);
+                }
             });
         }
 
-        // Load drafts when the page is loaded
+        // Load posts when the page is loaded
         window.addEventListener("load", function () {
-            loadDrafts();
+            loadPosts();
         });
-    </script> -->
+
+
+    </script>
+
 
 
 
@@ -532,15 +299,85 @@
 
 
     <script>
+        // // function for the delete button 
+        // function deletePost(button) {
+        //     var card = button.closest('.card');
+        //     var confirmation = confirm('Are you sure you want to delete this post?');
+        //     if (confirmation) {
+        //         card.parentNode.removeChild(card);
+        //         // You can also add code here to remove the post from localStorage/sessionStorage if necessary
+        //     }
+        // }
+
         // function for the delete button 
         function deletePost(button) {
+            // Find the closest ancestor element with the class 'card' relative to the button
             var card = button.closest('.card');
+
+            // Retrieve the ID of the post from a data attribute or any other means
+            var postId = card.dataset.postId;
+
+            // Display a confirmation dialog to the user
             var confirmation = confirm('Are you sure you want to delete this post?');
+
+            // If the user confirms the deletion
             if (confirmation) {
+                // Remove the 'card' element from the DOM
                 card.parentNode.removeChild(card);
-                // You can also add code here to remove the post from localStorage/sessionStorage if necessary
+
+                // Remove the specific post from local storage
+                var posts = JSON.parse(localStorage.getItem('posts')) || [];
+                var index = posts.findIndex(function (post) {
+                    return post.id === postId;
+                });
+                if (index !== -1) {
+                    posts.splice(index, 1);
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                }
             }
         }
+
+// // function for the delete button 
+// function deletePost(button) {
+//     // Find the closest ancestor element with the class 'card' relative to the button
+//     var card = button.closest('.card');
+
+//     // Retrieve the ID of the post from a data attribute or any other means
+//     var postId = card.dataset.postId;
+
+//     // Display a confirmation dialog to the user
+//     var confirmation = confirm('Are you sure you want to delete this post?');
+
+//     // If the user confirms the deletion
+//     if (confirmation) {
+//         // Remove the 'card' element from the DOM
+//         card.parentNode.removeChild(card);
+
+//         // Retrieve the existing posts from local storage
+//         var posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+//         // Filter out the deleted post
+//         posts = posts.filter(function(post) {
+//             return post.id !== postId;
+//         });
+
+//         // Update the local storage with the filtered posts
+//         localStorage.setItem('posts', JSON.stringify(posts));
+//     }
+// }
+
+// // Function to render posts from local storage
+// function renderPostsFromLocalStorage() {
+//     var posts = JSON.parse(localStorage.getItem('posts')) || [];
+
+//     // Render each post from local storage
+//     posts.forEach(function(post) {
+//         renderPost(post);
+//     });
+// }
+
+// // Render posts from local storage when the page loads
+// document.addEventListener('DOMContentLoaded', renderPostsFromLocalStorage);
 
     </script>
 
@@ -655,56 +492,3 @@
 </body>
 
 </html>
-
-<!-- <script>
-        // Function to handle form submission
-        document.getElementById("postForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Get form values
-            var title = document.getElementById("title").value;
-            var image = document.getElementById("image").files[0];
-            var description = document.getElementById("description").value;
-
-            // Create new post object
-            var post = { title: title, description: description, image: image };
-
-            // Store the post in localStorage
-            var posts = JSON.parse(localStorage.getItem("posts")) || [];
-            posts.push(post);
-            localStorage.setItem("posts", JSON.stringify(posts));
-
-            // Clear form fields
-            document.getElementById("title").value = "";
-            document.getElementById("image").value = "";
-            document.getElementById("description").value = "";
-
-            // Display the post immediately
-            displayPost(post);
-        });
-
-        // Function to display a single post
-        function displayPost(post) {
-            var postList = document.getElementById("postList");
-            var postElement = document.createElement("div");
-            postElement.classList.add("card", "mb-3");
-            postElement.innerHTML = `
-        <div class="card-header">
-            <div class="d-flex justify-content-between align-items-center">
-                <h5 class="card-title">${post.title}</h5>
-            </div>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="card-text">${post.description}</p>
-                </div>
-                <div class="col-md-6">
-                    <img src="${URL.createObjectURL(post.image)}" class="card-img-top" alt="Post Image" style="width: 200px; height: auto;">
-                </div>
-            </div>
-        </div>
-    `;
-            postList.appendChild(postElement);
-        }
-    </script> -->
