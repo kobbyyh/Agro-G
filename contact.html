@@ -11,6 +11,17 @@
 
     <title>Agroculture | Dashboard</title>
 
+    <script>
+         // Check if the user is authenticated
+      const user = JSON.parse(sessionStorage.getItem('user'));
+      if (user) {
+        // User is authenticated
+        displayUserInfo(user);
+      } else {
+        // Redirect to the login page if the user is not authenticated
+        window.location.href = "login.html";
+      }
+    </script>
     <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png">
     <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png">
@@ -42,17 +53,6 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
 
-    <script>
-        // Check if the user is authenticated
-        const user = JSON.parse(sessionStorage.getItem('user'));
-        if (user) {
-          // User is authenticated
-          displayUserInfo(user);
-        } else {
-          // Redirect to the login page if the user is not authenticated
-          window.location.href = "login.html";
-        }
-    </script>
 </head>
 
 <body>
@@ -96,7 +96,7 @@
                         <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
                         <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
                         <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
-                        <a href="index.html"><i class="bi bi-person-circle" style="font-size: 20px;"></i></a>
+                        <a href="contact.html"><i class="bi bi-person-circle" style="font-size: 20px;"></i></a>
                     </div>
                 </div>
             </div>

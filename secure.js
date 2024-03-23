@@ -1,8 +1,11 @@
 // Check authentication status
 function checkAuthStatus() {
     const user = auth.currentUser;
-    if (!user) {
-        // User is not authenticated, redirect to login page
+    const currentPage = window.location.pathname;
+    const isLoginPage = currentPage.includes("login.html");
+
+    if (!user && !isLoginPage) {
+        // User is not authenticated and not on the login page, redirect to login
         window.location.href = "login.html";
     }
 }
