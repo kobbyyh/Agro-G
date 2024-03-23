@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache, must-revalidate, post-check=0, pre-check=0">
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+
     <title>Agroculture | Dashboard</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png">
@@ -38,6 +42,17 @@
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
 
+    <script>
+        // Check if the user is authenticated
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (user) {
+          // User is authenticated
+          displayUserInfo(user);
+        } else {
+          // Redirect to the login page if the user is not authenticated
+          window.location.href = "login.html";
+        }
+    </script>
 </head>
 
 <body>
@@ -211,21 +226,23 @@
                     }
                     // Function to display user information
                     
-                    // Event listener for the Sign Out button
-                    const signOutBtn = document.getElementById("signOutBtn");
-                    signOutBtn.addEventListener("click", () => {
-                        auth.signOut().then(() => {
-                            // Sign-out successful
-                            console.log("User signed out successfully.");
-                            sessionStorage.removeItem('user-info'); // Optionally remove user data from sessionStorage
-                            window.location.href = "login.html"; // Redirect to the login page
+                   // Event listener for the Sign Out button
+const signOutBtn = document.getElementById("signOutBtn");
+signOutBtn.addEventListener("click", () => {
+    auth.signOut().then(() => {
+        // Sign-out successful
+        console.log("User signed out successfully.");
+        // Clear session storage
+        sessionStorage.clear();
+        console.log("Session storage cleared.");
+        // Redirect to the login page
+        window.location.href = "login.html"; // Redirect to the login page
+    }).catch((error) => {
+        // An error occurred during sign-out
+        console.error("Error signing out:", error);
+    });
+});
 
-                        }).catch((error) => {
-                            // An error occurred
-                            console.error("Error signing out:", error);
-                        });
-                    });
-                </script>
                 </script>
 
                 <div class="col-md-6">
@@ -324,7 +341,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <div class="btn-group w-100">
-                                    <button id="SignOutBtn class="btn btn-outline-danger">Sign Out</button>
+                                    <button id="signOutBtn" class="btn btn-outline-danger">Sign Out</button>
                                 </div>
                             </div>
 
