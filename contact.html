@@ -166,39 +166,38 @@
 
                     // Function to display user information
                     const nameElement = document.getElementById("name");
-
-                    function displayUserInfo(user) {
-                        //   const emailElement = document.getElementById("email");
-
-                        const emailElement = document.getElementById("email");
-                        if (user) {
-                            if (user.displayName) {
-                                nameElement.innerText = user.displayName;
-                            } else {
-                                nameElement.innerText = "Name not available";
-                            }
-
-                            if (user.email) {
-                                emailElement.innerText = user.email;
-                            } else {
-                                emailElement.innerText = "Email not available";
-                            }
+                      function displayUserInfo(user) {
+                    //   const emailElement = document.getElementById("email");
+                    const emailElement = document.getElementById("email");
+                    if (user) {
+                        if (user.displayName) {
+                            nameElement.innerText = user.displayName;
+                        } else {
+                            nameElement.innerText = "Name not available";
                         }
-                    }
-                    // Sign out functionality
+                
+                        if (user.email) {
+                            emailElement.innerText = user.email;
+                        } else {
+                            emailElement.innerText = "Email not available";
+                        }
+                    }}
+
+                        // Sign out functionality
                     const signOutBtn = document.getElementById("signOutBtn");
                     signOutBtn.addEventListener("click", () => {
                         auth.signOut().then(() => {
-                            // Sign-out successful.
-                            sessionStorage.removeItem('user');
-                            // window.location.href = "login.html";
+                            // Sign-out successful
+                            console.log("User signed out successfully.");
+                            sessionStorage.removeItem('user'); // Optionally remove user data from sessionStorage
+                            window.location.href = "login.html"; // Redirect to the login page
                         }).catch((error) => {
-                            // An error happened.
+                            // An error occurred
                             console.error("Error signing out:", error);
                         });
                     });
                 </script>
-
+                             
                 <div class="col-md-6">
                     <div class="row">
                         <div class="row">
