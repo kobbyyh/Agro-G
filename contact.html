@@ -115,7 +115,7 @@
                         </div>
                         <div class="card-body" style="color:rgb(35, 33, 33)">
                             <!-- <h5 class="card-title">User Profile</h5> -->
-                            <p><strong>Name:</strong> <span id="name"></span></p>
+                            <p><strong>Name:</strong> <span id="namez"></span></p>
                             <p><strong>Email:</strong> <span id="email"></span></p>
                             <div class="card">
                                 <div class="card-body">
@@ -127,6 +127,40 @@
                     </div>
                 </div>
                 
+                <script>
+                    let UserCreds = JSON.parse(sessionStorage.getItem('user-cred'));
+                    let UserInfo = JSON.parse(sessionStorage.getItem('user-info'));
+
+                    let msgHead = document.getElementById('name');
+                    let GreetHead = document.getElementById('email');
+                    let bio = document.getElementById('bio');
+                    let SignOutBtn = document.getElementById('signoutbutton');
+
+                    let SignOut = () => {
+                        firebase.auth().signOut().then(() => {
+                            // Sign-out successful.
+                            sessionStorage.removeItem('user-cred');
+                            sessionStorage.removeItem('user-info');
+                            window.location.href = 'login.html';
+                        }).catch((error) => {
+                            // An error happened.
+                            console.log(error);
+                        });
+                    }
+
+                    let CheckCred = () => {
+                        if (!sessionStorage.getItem("user-cred")) {
+                            // window.location.href = 'login.html';
+                        }
+                        else {
+                            msgHead.innerText = `Name: ${UserInfo.firstname}`;
+                            GreetHead.innerText = `Email: ${UserInfo.email}`;
+                            bio.innerText = `Bio: ${UserInfo.bio}`;
+                        }
+                    }
+                    window.addEventListener('load', CheckCred);
+                    SignOutBtn.addEventListener('click', SignOut);
+                </script>
                 <!-- Include the JavaScript code here -->
                 <script type="module">
                     // Import the functions you need from the SDKs you need
@@ -148,51 +182,35 @@
                 
                     // Initialize Firebase
                     const app = initializeApp(firebaseConfig);
-                    const analytics = getAnalytics(app);
-                    const db = getDatabase();
                     const auth = getAuth(app);
-                    const dbref = ref(db);
-                
-                    // Check if the user is authenticated
-                    const user = JSON.parse(sessionStorage.getItem('user'));
-                    if (!user) {
-                        // Redirect to the login page if the user is not authenticated
-                        window.location.href = "login.html";
-                    }
-                
 
-                    
                     // Function to display user information
                     const nameElement = document.getElementById("name");
                     const emailElement = document.getElementById("email");
-                    if (user) {
-                        if (user.displayName) {
-                            nameElement.innerText = user.displayName;
-                        } else {
-                            nameElement.innerText = "Name not available";
-                        }
-                
-                        if (user.email) {
-                            emailElement.innerText = user.email;
-                        } else {
-                            emailElement.innerText = "Email not available";
-                        }
+                    const bioElement = document.getElementById("bio");
+
+                    // Retrieve user info from sessionStorage
+                    const userInfo = JSON.parse(sessionStorage.getItem('user-info'));
+                    if (userInfo) {
+                        nameElement.innerText = userInfo.firstname; // Display user's first name
+                        emailElement.innerText = userInfo.email; // Display user's email
+                        bioElement.innerText = userInfo.bio; // Display user's bio
                     }
 
-                     // Event listener for the Sign Out button
+                    // Event listener for the Sign Out button
                     const signOutBtn = document.getElementById("signOutBtn");
                     signOutBtn.addEventListener("click", () => {
                         auth.signOut().then(() => {
                             // Sign-out successful
                             console.log("User signed out successfully.");
-                            sessionStorage.removeItem('user'); // Optionally remove user data from sessionStorage
+                            sessionStorage.removeItem('user-info'); // Optionally remove user data from sessionStorage
                             window.location.href = "login.html"; // Redirect to the login page
                         }).catch((error) => {
                             // An error occurred
                             console.error("Error signing out:", error);
                         });
                     });
-                                </script>
+                </script>
                              
                 <div class="col-md-6">
                     <div class="row">
@@ -283,7 +301,7 @@
 
                             <div class="col-md-6 mb-3">
                                 <div class="btn-group w-100">
-                                    <button id="signOutBtn" class="btn btn-outline-danger">Sign Out</button>
+                                    <button id="signoutbutton" class="btn btn-outline-danger">Sign Out</button>
                                 </div>
                             </div>
 
