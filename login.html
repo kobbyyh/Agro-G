@@ -29,11 +29,9 @@
     <form id="MainForm" class="m-4">
       <h2>Sign In</h2>
       <small id="emailHelp" class="form-text text-muted">Kindly log in with your saved credentials</small>
-     
+
       <div class="form-floating mb-3">
-        <input type="email" class="form-control"
-         id="emailInp" aria-describedby="emailHelp" 
-         placeholder="Email" />
+        <input type="email" class="form-control" id="emailInp" aria-describedby="emailHelp" placeholder="Email" />
         <!-- <label for="emailInp">Email address</label> -->
       </div>
 
@@ -105,26 +103,17 @@
           };*/
           sessionStorage.setItem("user", JSON.stringify(user));
 
-            // Redirect to a secure page
-            window.location.href = "index.html";
-          })
-          .catch((error) => {
-            alert("Error: " + error.message);
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Login error:", errorCode, errorMessage);
-          });
-      };
           // Redirect to a secure page
-    //       window.location.href = "contact.html";
-    //     })
-    //     .catch((error) => {
-    //       alert("Error: " + error.message);
-    //       const errorCode = error.code;
-    //       const errorMessage = error.message;
-    //       console.error("Login error:", errorCode, errorMessage);
-    //     });
-    // };
+          window.location.href = "index.html";
+        })
+        .catch((error) => {
+          alert("Error: " + error.message);
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.error("Login error:", errorCode, errorMessage);
+        });
+    };
+
 
     MainForm.addEventListener("submit", SignInUser);
   </script>
