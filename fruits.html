@@ -37,6 +37,19 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="product.css">
     <script src="horti.js"></script>
+
+
+    <script>
+        // Check if the user is authenticated
+        const user = JSON.parse(sessionStorage.getItem('user'));
+        if (user) {
+          // User is authenticated
+          displayUserInfo(user);
+        } else {
+          // Redirect to the login page if the user is not authenticated
+          window.location.href = "login.html";
+        }
+    </script>
 </head>
 
 
