@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agriculture | Support</title>
+
+  <!-- <script>
+    // Check if the user is authenticated
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (user) {
+      // User is authenticated
+      displayUserInfo(user);
+    } else {
+      // Redirect to the login page if the user is not authenticated
+      window.location.href = "login.html";
+    }
+  </script> -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- <link rel="stylesheet" href="support.css"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+</head>
+
+<body>
+  <div class="pager">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="navigation container-fluid">
+        <img src="./images/agro_g.png" style="width: 150px" class="kayybites_logo d-inline-block align-top"
+          alt="Logo" />
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="flora.html">Flora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="weather forecast.html">Weather Forecast</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="community-forum.html">Community Forum</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="support.html"><b>Feedback</b></a>
+            </li>
+          </ul>
+          <div class="navbar-svg" style="border-radius: 20px;">
+            <a href="contact.html" type="button" class="btn btn-outline-success mr-2" id="myBtn">
+              <i class="bi bi-person-circle" title="Dashboard" style="font-size: 20px"></i>
+            </a>
+            <i class="btn btn-dark bi bi-moon" style="color: rgb(183, 155, 63); font-size: 20px; margin-right: 10px;"
+              id="dark-mode-toggle"></i>
+
+            <a href="" type="button" class="btn btn-outline-info mr-2"><i class="bi bi-instagram instagram"
+                style="font-size: 20px"></i></a>
+            <a href="" type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-twitter twitter"
+                style="font-size: 20px"></i></a>
+            <a href="" type="button" class="btn btn-outline-success mr-2"><i class="bi bi-facebook facebook"
+                style="font-size: 20px"></i></a>
+            <a href="login.html" data-toggle="tooltip" title="Logout!" type="button" class="btn btn-outline-danger mr-2"><i
+                class="bi bi-box-arrow-right logout" style="font-size: 20px"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+
+    <!-- <div class="container forum-container mt-5">
+      <h2 style="padding-top: 50px;">Support Our Farmers: Recognizing Their Vital Contribution</h2>
+      <div class="announcement-section">
+        <div class="alert alert-success" role="alert">
+          <strong>
+            Dear Community Members,
+     
+          </strong>
+          <p>
+
+            As we enjoy the abundance of food on our tables, let's take a moment to appreciate the tireless efforts of
+            our farmers who work relentlessly to ensure our sustenance. Their dedication, hard work, and commitment
+            often go unnoticed, yet they play a crucial role in our lives and community.
+
+            Farmers face numerous challenges, from unpredictable weather conditions to fluctuating market prices, yet
+            they persevere to provide us with nutritious produce day in and day out. Their contributions to society are
+            invaluable, and it's time we recognize and support them in return.
+
+            We urge you to consider donating whatever you can – whether it's monetary support, essential supplies, or
+            simply a gesture of gratitude – to our local farmers. Your contribution, no matter how small, can make a
+            significant difference in their lives and livelihoods.
+
+            Let's come together as a community to show our appreciation for the hard work and dedication of our farmers.
+            Your generosity will not only support them financially but also serve as a token of gratitude for their
+            tireless efforts in nourishing our lives.
+
+            <br> Thank you for joining us in supporting our farmers.
+          </p>
+          <h3>Let's Help Raise Funds For Our Farmers. Kindly Scan The Code Below To Support! </h3>
+          <div style="margin-left: 40%;">
+            <img src="./images/paytm.jpg" style="width:200px;" alt="">
+
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div class="container rotate1-container" style="margin-top: 10%; width: 40%;">
+        <div class="alert alert-success" role="alert">
+          <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+          <p>Hon. Goliath</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container rotate2-container" style="margin-top: 1%; width: 40%;">
+      <div class="alert alert-warning" role="alert">
+        <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+        <p>Miss Rhoda</p>
+      </div>
+    </div>
+
+    <div class="container rotate3-container" style="margin-top: 1%; width: 40%;">
+      <div class="alert alert-primary" role="alert">
+        <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+        <p>Oppenheimer</p>
+      </div>
+    </div>
+
+    <div class="container rotate4-container" style="margin-top: 1%; width: 40%;">
+      <div class="alert alert-danger" role="alert">
+        <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+        <p>Mr Josh</p>
+      </div>
+    </div>
+
+    <div class="container rotate5-container" style="margin-top: 1%; width: 40%;">
+      <div class="alert alert-secondary" role="alert">
+        <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+        <p>Mrs. LockWood</p>
+      </div>
+    </div>
+
+    <div class="container rotate6-container" style="margin-top: 1%; width: 40%;">
+      <div class="alert alert-info" role="alert">
+        <p>I am pleased to have naviagted through this website. It gives me everything I want</p>
+        <p>Ellen</p>
+      </div>
+    </div>
+
+    
+  </div>
+
+
+<style>
+    @keyframes rotateContainer {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(5deg); 
+      }
+    }
+    .rotate1-container {
+      margin-left: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate1-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 5s infinite alternate; 
+    }
+
+
+    .rotate2-container {
+      margin-right: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate2-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 2s infinite alternate; 
+    }
+
+
+    .rotate3-container {
+      margin-left: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate3-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 3s infinite alternate; 
+    }
+
+
+    .rotate4-container {
+      margin-right: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate4-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 4s infinite alternate; 
+    }
+
+
+    .rotate5-container {
+      margin-left: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate5-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 3s infinite alternate; 
+    }
+
+
+    .rotate6-container {
+      margin-right: 40px;
+      margin-top: 10%;
+      width: 40%;
+      transform: rotate(10deg); 
+      top: 50%;
+      left: 0;
+      transform-origin: left top;
+    }
+    .rotate6-container {
+      margin-top: 10%;
+      width: 40%;
+      animation: rotateContainer 1s infinite alternate; 
+    }
+</style>
+
+
+
+
+    <div class="container forum-container mt-5">
+      <h2 style="padding-top: 50px;">Kindly Give Your Feedback</h2>
+      <div class="announcement-section">
+        <div class="alert alert-warning" role="alert">
+          <strong>Hello there!</strong>
+          <p>
+            Your satisfaction and experience are of utmost importance to us. As we strive to enhance our agro-based
+            website to better serve your needs, we kindly request your valuable feedback.
+
+            Your insights, suggestions, and comments are incredibly valuable in helping us understand what works well
+            and what areas need improvement. Whether it's about the user interface, functionality, content, or any other
+            aspect of the website, we want to hear from you.
+
+            Your feedback will enable us to make informed decisions and implement changes that align with your
+            preferences and requirements. Together, we can create a more user-friendly and efficient platform that meets
+            the diverse needs of our users in the agricultural community.
+
+            Please take a few moments to share your thoughts with us. You can provide your feedback through our
+            website's feedback form, or feel free to reach out to us directly via email or phone.
+
+            Thank you for your continued support and for helping us shape the future of our agro-based website. We look
+            forward to hearing from you and working together to deliver an exceptional user experience.
+            <br>
+          </p>
+
+          <form class="col-6 mb-4">
+            <div>
+              <label for="description" class="form-label">Feedback/Suggestion:</label>
+              <textarea class="form-control" id="description" name="description"
+                placeholder="Please give your feedback here..." rows="4"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Share <i class="bi bi-send" width="16" height="16"></i>
+            </button>
+          </form>
+
+          
+        </div>
+      </div>
+
+
+      <!-- <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-6">
+
+          </div>
+
+          <div class="col-md-6">
+            <div class="card1">
+              <div class="container mt-5">
+                <div class="invoice-container">
+                 
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+
+
+    </div>
+
+  </div>
+
+  <script>
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeToggleIcon = document.getElementById("dark-mode-toggle");
+
+      // Toggle dark mode class on body
+      body.classList.toggle("dark-mode");
+
+      // Toggle moon icon class based on dark mode state
+      if (body.classList.contains("dark-mode")) {
+        darkModeToggleIcon.classList.remove("bi-moon");
+        darkModeToggleIcon.classList.add("bi-moon-fill");
+      } else {
+        darkModeToggleIcon.classList.remove("bi-moon-fill");
+        darkModeToggleIcon.classList.add("bi-moon");
+      }
+
+      // Store the dark mode preference in local storage
+      const isDarkMode = body.classList.contains("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode);
+    }
+
+    // Event listener for dark mode toggle button
+    document
+      .getElementById("dark-mode-toggle")
+      .addEventListener("click", toggleDarkMode);
+
+    // Check local storage for dark mode preference on page load
+    document.addEventListener("DOMContentLoaded", function () {
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      const darkModeToggleIcon = document.getElementById("dark-mode-toggle");
+
+      if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        darkModeToggleIcon.classList.remove("bi-moon");
+        darkModeToggleIcon.classList.add("bi-moon-fill");
+      } else {
+        darkModeToggleIcon.classList.remove("bi-moon-fill");
+        darkModeToggleIcon.classList.add("bi-moon");
+      }
+    });
+  </script>
+  <!-- translator -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+    }
+  </script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <i>
+    <footer class="footer-section container-fluid text-light" style="margin-top: 20px;">
+      <div class="row">
+        <div class="footer-head col-md-3">
+          <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px" class="kayybites_footer_logo"
+            alt="Logo" />
+
+          <div class="list-unstyled-container">
+            <p style="color: black; font-size: small">
+              <br />
+              Your go-to destination for hassle-free horticulture. Explore our
+              user-friendly platform offering a wide selection of fruits,
+              flowers, and vegetables, complete with easy-to-use control
+              mechanisms. Discover the perfect plants for every season. Join
+              us and simplify your farming journey with AgroG.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-head col-md-3">
+          <h5><b>Quick Links</b></h5>
+          <ul class="list-unstyled">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="product.html">Flora</a></li>
+            <li><a href="weather forecast.html">Weather Forecast</a></li>
+            <li><a href="community forum.html">Community Forum</a></li>
+          </ul>
+        </div>
+        <div class="footer-head col-md-3">
+          <h5><b>Personalized</b></h5>
+          <ul class="list-unstyled">
+            <li><a href="contact.html">My Account</a></li>
+            <li><a href="contact.html">Terms And Conditions</a></li>
+            <li><a href="contact.html">Privacy Policy</a></li>
+            <li><a href="index.html">Sign out</a></li>
+          </ul>
+        </div>
+        <div class="footer-head col-md-3">
+          <h5><b>Socials</b></h5>
+          <div class="list-unstyled-container">
+            <p class="small-text" style="color: black">
+              Follow us for more updates
+            </p>
+            <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </i>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
+</body>
+
+</html>
