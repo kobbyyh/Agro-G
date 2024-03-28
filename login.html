@@ -95,12 +95,6 @@
           const user = userCredential.user;
           console.log("User signed in:", user.uid);
 
-          // Store user details in session storage
-          /*const userInfo = {
-            displayName: user.name,
-            email: user.email,
-            // Add more user information if needed
-          };*/
           sessionStorage.setItem("user", JSON.stringify(user));
 
             // Redirect to a secure page
