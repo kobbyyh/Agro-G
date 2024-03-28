@@ -43,14 +43,14 @@
         // Check if the user is authenticated
         const user = JSON.parse(sessionStorage.getItem('user'));
         if (user) {
-          // User is authenticated
-          displayUserInfo(user);
+            // User is authenticated
+            displayUserInfo(user);
         } else {
-          // Redirect to the login page if the user is not authenticated
-          window.location.href = "login.html";
+            // Redirect to the login page if the user is not authenticated
+            window.location.href = "login.html";
         }
     </script>
-    
+
 </head>
 
 <body>
@@ -88,21 +88,22 @@
                     </ul>
                     <div class="navbar-svg" style="border-radius: 20px;">
                         <a href="contact.html" type="button" class="btn btn-outline-success mr-2" id="myBtn">
-                          <i class="bi bi-person-circle" title="Dashboard" style="font-size: 20px"></i>
+                            <i class="bi bi-person-circle" title="Dashboard" style="font-size: 20px"></i>
                         </a>
-                        <i class="btn btn-dark bi bi-moon" style="color: rgb(183, 155, 63); font-size: 20px; margin-right: 10px;"
-                          id="dark-mode-toggle"></i>
-            
+                        <i class="btn btn-dark bi bi-moon"
+                            style="color: rgb(183, 155, 63); font-size: 20px; margin-right: 10px;"
+                            id="dark-mode-toggle"></i>
+
                         <a href="" type="button" class="btn btn-outline-info mr-2"><i class="bi bi-instagram instagram"
-                            style="font-size: 20px"></i></a>
+                                style="font-size: 20px"></i></a>
                         <a href="" type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-twitter twitter"
-                            style="font-size: 20px"></i></a>
+                                style="font-size: 20px"></i></a>
                         <a href="" type="button" class="btn btn-outline-success mr-2"><i class="bi bi-facebook facebook"
-                            style="font-size: 20px"></i></a>
+                                style="font-size: 20px"></i></a>
                         <a href="login.html" data-toggle="tooltip" title="Logout!" type="button"
-                          class="btn btn-outline-danger mr-2"><i class="bi bi-box-arrow-right logout"
-                            style="font-size: 20px"></i></a>
-                      </div>
+                            class="btn btn-outline-danger mr-2"><i class="bi bi-box-arrow-right logout"
+                                style="font-size: 20px"></i></a>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -389,82 +390,58 @@
             new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
         }
     </script>
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
-        <i>
-            <footer class="footer-section container-fluid text-light">
-                <div class="row">
-                    <!-- <div class="footer-head col-md-3">
-                <img src="./images/agro_g.png" style="padding-top: 50px;" class="kayybites_footer_logo" alt="Logo">
-                <p style="color: black; font-size: small;" ><br>
-                     Explore our user-friendly platform offering
-                    a wide selection of fruits, flowers, and vegetables, complete with easy-to-use control
-                    mechanisms. </p>
-                <div class="list-unstyled-container">
-                    <p class="small-text" style="color: black;">Follow us for more updates</p>
-                    <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px;"></i></a>
+    <i>
+        <footer class="footer-section container-fluid text-light"style="margin-top: 5%;">
+            <div class="row">
+                <div class="footer-head col-md-3">
+                    <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px;"
+                        class="kayybites_footer_logo" alt="Logo">
+
+                    <div class="list-unstyled-container">
+                        <p style="color: black; font-size: small;"><br>
+                            Your go-to destination for hassle-free horticulture. Explore our user-friendly platform
+                            offering a wide selection of fruits, flowers, and vegetables, complete with easy-to-use
+                            control mechanisms. Discover the perfect plants for every season. Join us and simplify your
+                            farming journey with AgroG.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="footer-head col-md-3">
+                    <h5><b>Quick Links</b></h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="flora.html">Flora</a></li>
+                        <li><a href="weather-forecast.html">Weather Forecast</a></li>
+                        <li><a href="community-forum.html">Community Forum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-head col-md-3">
+                    <h5><b>Personalized</b></h5>
+                    <ul class="list-unstyled">
+                        <li><a href="contact.html">My Account</a></li>
+                        <li><a href="contact.html">Terms And Conditions</a></li>
+                        <li><a href="contact.html">Privacy Policy</a></li>
+                        <li><a href="index.html">Sign out</a></li>
+                    </ul>
+                </div>
+                <div class="footer-head col-md-3">
+                    <h5><b>Socials</b></h5>
+                    <div class="list-unstyled-container">
+                        <p class="small-text" style="color: black;">Follow us for more updates</p>
+                        <a href=""><i class="bi bi-instagram  instagram" style="font-size: 20px;"></i></a>
                         <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
                         <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
                         <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
-                        <a href=""><i class="bi bi-github github" style="font-size: 20px;"></i></a>
-                </div>
-            </div> -->
-    
-                    <div class="footer-head col-md-3">
-                        <!-- <h5>Getting Started </h5> -->
-                        <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px;"
-                            class="kayybites_footer_logo" alt="Logo">
-    
-                        <div class="list-unstyled-container">
-                            <p style="color: black; font-size: small;"><br>
-                                Your go-to destination for hassle-free horticulture. Explore our user-friendly platform
-                                offering a wide selection of fruits, flowers, and vegetables, complete with easy-to-use
-                                control mechanisms. Discover the perfect plants for every season. Join us and simplify your
-                                farming journey with AgroG.</p>
-                            <!-- <p class="small-text" style="color: black;">Follow us for more updates</p>
-                    <a href=""><i class="bi bi-instagram  instagram" style="font-size: 50px;"></i></a>
-                    <a href=""><i class="bi bi-twitter twitter" style="font-size: 50px;"></i></a>
-                    <a href=""><i class="bi bi-facebook facebook" style="font-size: 50px;"></i></a>
-                    <a href=""><i class="bi bi-youtube youtube" style="font-size: 50px;"></i></a> -->
-                        </div>
-                    </div>
-    
-                    <div class="footer-head col-md-3">
-                        <h5><b>Quick Links</b></h5>
-                        <ul class="list-unstyled">
-                            <li><a href="home.html">Home</a></li>
-                            <li><a href="product.html">Flora</a></li>
-                            <li><a href="weather forecast.html">Weather Forecast</a></li>
-                            <li><a href="community forum.html">Community Forum</a></li>
-                            <!-- <li><a href="">Getting Started</a></li> -->
-    
-                        </ul>
-                    </div>
-                    <div class="footer-head col-md-3">
-                        <h5><b>Personalized</b></h5>
-                        <ul class="list-unstyled">
-                            <li><a href="contact.html">My Account</a></li>
-                            <li><a href="contact.html">Terms And Conditions</a></li>
-                            <li><a href="contact.html">Privacy Policy</a></li>
-                            <!-- <li><a href="contact.html">Settings</a></li>
-                    <li><a href="" id="dark-mode-toggle">Change theme</a></li> -->
-                            <li><a href="index.html">Sign out</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-head col-md-3">
-                        <h5><b>Socials</b></h5>
-                        <div class="list-unstyled-container">
-                            <p class="small-text" style="color: black;">Follow us for more updates</p>
-                            <a href=""><i class="bi bi-instagram  instagram" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px;"></i></a>
-                            <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px;"></i></a>
-                        </div>
                     </div>
                 </div>
-            </footer>
-        </i>
+            </div>
+        </footer>
+    </i>
 
 </body>
 
