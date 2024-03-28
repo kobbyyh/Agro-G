@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agriculture | Home</title>
+
+  <script>
+    // Check if the user is authenticated
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (user) {
+      // User is authenticated
+      displayUserInfo(user);
+    } else {
+      // Redirect to the login page if the user is not authenticated
+      window.location.href = "index.html";
+    }
+  </script>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/agroculture.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/agroculture.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./images/agroculture.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="horti.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+  <!-- <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyDZkSheSC3erQVh0OFaHOpyBgTLr-Zemf0",
+        authDomain: "agrog-ac9d5.firebaseapp.com",
+        databaseURL: "https://agrog-ac9d5-default-rtdb.firebaseio.com",
+        projectId: "agrog-ac9d5",
+        storageBucket: "agrog-ac9d5.appspot.com",
+        messagingSenderId: "666106586887",
+        appId: "1:666106586887:web:e0f28eb6fd837ee21e47a2",
+        measurementId: "G-08ER6YLGEN",
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Check if the user is authenticated
+      const user = JSON.parse(sessionStorage.getItem("user"));
+      if (!user) {
+        // Redirect to the login page if the user is not authenticated
+        window.location.href = "login.html";
+      }
+    </script> -->
+</head>
+
+<body>
+  <div class="pager">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="navigation container-fluid">
+        <img src="./images/agro_g.png" style="width: 150px" class="kayybites_logo d-inline-block align-top"
+          alt="Logo" />
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#"><b>Home</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="flora.html">Flora</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="weather-forecast.html">Weather Forecast</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="community-forum.html">Community Forum</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="support.html">Feedback</a>
+            </li>
+
+          </ul>
+
+          <div class="navbar-svg" style="border-radius: 20px;">
+            <a href="contact.html" type="button" class="btn btn-outline-success mr-2" id="myBtn">
+              <i class="bi bi-person-circle" title="Dashboard" style="font-size: 20px"></i>
+            </a>
+            <i class="btn btn-dark bi bi-moon" style="color: rgb(183, 155, 63); font-size: 20px; margin-right: 10px;"
+              id="dark-mode-toggle"></i>
+
+            <a href="" type="button" class="btn btn-outline-info mr-2"><i class="bi bi-instagram instagram"
+                style="font-size: 20px"></i></a>
+            <a href="" type="button" class="btn btn-outline-primary mr-2"><i class="bi bi-twitter twitter"
+                style="font-size: 20px"></i></a>
+            <a href="" type="button" class="btn btn-outline-success mr-2"><i class="bi bi-facebook facebook"
+                style="font-size: 20px"></i></a>
+            <a href="login.html" data-toggle="tooltip" title="Logout!" type="button"
+              class="btn btn-outline-danger mr-2"><i class="bi bi-box-arrow-right logout"
+                style="font-size: 20px"></i></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="landing-page">
+      <div class="landing-text">
+        <div class="row">
+          <div class="col-md-6 custom-grid">
+            <p>Happy Farming, Everyone!</p>
+            <h3>
+              <b>Cultivating Dreams, Nurturing Growth: Your Horticultural
+                Haven Awaits</b>
+            </h3>
+            <p>
+              Step into a haven where dreams take root and growth blossoms.
+              Our sanctuary is a canvas for cultivating passions, nurturing
+              life, and creating a vibrant horticultural experience. <br />
+              Join us in sowing the seeds of aspirations, where every plant
+              tells a unique story, and every bloom reflects the care it
+              receives. In this community of enthusiasts, find solace, engage
+              in learning, and let your journey in horticulture be a
+              celebration of life. <br /><b>Welcome To Your Own Green Retreat.</b>
+            </p>
+          </div>
+          <div class="self-container col-md-6">
+            <img id="profileImage" src="./images/farmer1.jpg" class="img-fluid custom-image-size" alt="Image" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="details">
+      <div class="details-text">
+        <div class="row">
+          <div class="col-md-6 custom-grid">
+            <img id="" src="./images/palm-trees.jpg" width="500" height="550" class="img-fluid custom-image-size"
+              alt="Image" />
+          </div>
+
+          <div class="self-container col-md-6">
+            <p>Plant Of The Week</p>
+            <h3><b>Plam Tree</b></h3>
+            <p>
+              The palm tree, belonging to the family Arecaceae, has a rich history deeply intertwined with human
+              civilization. With a lineage dating back millions of years, palms have been vital to various cultures and
+              ecosystems. Used by ancient civilizations for sustenance, shelter, and materials, palms have been symbolic
+              of resilience and prosperity. From providing food sources such as dates and coconuts to being revered in
+              religious ceremonies, palm trees have played multifaceted roles in human societies throughout history.
+            </p>
+
+            <button type="button" class="btn btn-outline-danger" id="myBtn" data-bs-toggle="modal"
+              data-bs-target="#exampleModal11">
+              Read More
+            </button>
+
+            <div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content" style="color: rgb(43, 40, 40);">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel11">
+                      Plant Of The Week
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal1" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Palm trees, belonging to the family Arecaceae, boast a rich cultural and ecological legacy spanning
+                    millions of years. Their significance in human history is profound, serving as symbols of resilience
+                    and abundance across civilizations. <br /><br />
+
+                    Historical Importance: Palm trees have been integral to human societies throughout history, with
+                    evidence of their use dating back to ancient civilizations. From providing essential resources such
+                    as food, shelter, and materials to being revered in religious rituals and ceremonies, palms have
+                    played multifaceted roles in shaping human culture and landscapes. <br /><br />
+
+                    Cultural Significance: Palms have been revered in various cultures around the world, symbolizing
+                    vitality, victory, and peace. They hold religious significance in many traditions, often associated
+                    with concepts of paradise, enlightenment, and eternal life. The iconic image of palm-lined beaches
+                    and oases has become synonymous with leisure, relaxation, and natural beauty. <br /><br />
+
+                    Economic Value: Beyond their cultural and symbolic importance, palm trees have significant economic
+                    value. Palms are cultivated for a wide range of products, including edible fruits like dates and
+                    coconuts, oils, fibers for textiles, and ornamental purposes in landscaping. Additionally, palm oil,
+                    extracted from certain palm species, is a versatile commodity used in food, cosmetics, and biofuels.
+                    <br /><br />
+
+                    Ecological Impact: Palm trees play crucial roles in maintaining biodiversity and ecosystem
+                    stability. They provide habitat and food for a diverse array of wildlife, contribute to soil
+                    stabilization, and help mitigate climate change through carbon sequestration. As keystone species in
+                    tropical and subtropical regions, palms are essential components of healthy ecosystems. <br /><br />
+
+                    Conservation Challenges: Despite their importance, palm trees face various threats, including
+                    habitat loss, deforestation, and overexploitation. Unsustainable agricultural practices,
+                    urbanization, and climate change pose significant challenges to palm tree populations worldwide.
+                    Conservation efforts are underway to protect and sustainably manage palm forests and their
+                    associated biodiversity. <br /><br />
+
+                    Future Outlook: As awareness of environmental conservation grows, there is increasing recognition of
+                    the importance of preserving palm tree habitats and promoting sustainable palm cultivation
+                    practices. By balancing economic development with conservation efforts, it is possible to ensure the
+                    continued prosperity of palm trees and the ecosystems they support for generations to come.
+                    <br /><br />
+
+                    Ongoing Research: Ongoing research focuses on understanding the ecological, economic, and cultural
+                    significance of palm trees. Studies explore topics such as palm ecology, conservation strategies,
+                    and the socio-economic impacts of palm cultivation. By advancing scientific knowledge and fostering
+                    interdisciplinary collaboration, researchers aim to address pressing challenges facing palm tree
+                    populations and promote their sustainable management.
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="svg-container mt-3">
+              <div class="svg-services row">
+                <div class="col-md-6 col-sm-6">
+                  <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <img src="./images/history.png" style="
+                          height: 30%;
+                          margin-left: 10px;
+                          margin-right: 10px;
+                          margin-top: 10px;
+                        " class="SVG-Image" />
+                    <br />
+                    <p>History</p>
+
+                    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel1">
+                              History
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal1"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Palm trees have a rich history dating back millions of years, evolving during the Mesozoic
+                            Era. Humans have utilized them for food, shelter, and materials since ancient times.
+                            Symbolically significant in many cultures, palms have been associated with fertility,
+                            victory, and prosperity. Introduced to new regions through trade and exploration, palms
+                            became important crops and symbols of leisure and paradise. Today, they continue to play
+                            vital roles in agriculture, industry, and culture worldwide.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                    <img src="./images/use.png" style="
+                          height: 30%;
+                          margin-left: 10px;
+                          margin-right: 10px;
+                          margin-top: 10px;
+                        " class="SVG-Image" />
+                    <br />
+                    <p>Importance</p>
+
+                    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel2">
+                              Importance
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal2"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+
+                            Medicinal Uses: Palm trees have been historically utilized for various medicinal purposes
+                            across cultures. While they may not contain cannabinoids like Cannabis sativa, palm products
+                            such as palm oil and palm kernel oil have been used in traditional medicine for their
+                            potential health benefits. Palm oil, for example, is rich in antioxidants and vitamin E,
+                            making it beneficial for skincare and cardiovascular health. Additionally, palm-based
+                            remedies have been employed in treating ailments such as skin conditions, digestive issues,
+                            and respiratory problems. <br><br>
+
+                            Industrial Uses: Palm trees are highly valued for their versatile industrial applications.
+                            Palm oil, extracted from the fruit of certain palm species, is one of the most widely used
+                            vegetable oils globally. It is used in food processing, cosmetics, pharmaceuticals, and
+                            biofuels. Palm fibers, derived from the leaves and trunks of palm trees, are utilized in the
+                            production of textiles, ropes, mats, and brushes. Palm wood is prized for its durability and
+                            is used in construction, furniture making, and handicrafts. <br><br>
+
+                            Cultural Significance: Palm trees hold significant cultural and symbolic value in many
+                            societies. They are revered for their association with prosperity, abundance, and
+                            resilience. Palms feature prominently in religious rituals, festivals, and ceremonies,
+                            symbolizing fertility, victory, and renewal. Additionally, palm leaves are often used in
+                            traditional arts and crafts, including basket weaving, mat making, and palm leaf art.
+
+                            Ecological Importance: Palm trees play crucial ecological roles in maintaining biodiversity
+                            and ecosystem balance. They provide habitat and food for numerous species of wildlife,
+                            including birds, insects, and mammals. Palm forests also contribute to soil stabilization,
+                            watershed protection, and carbon sequestration, helping to mitigate climate change.
+                            Furthermore, palm-dominated landscapes support unique ecosystems with high levels of
+                            biodiversity, making them conservation priorities. <br><br>
+
+                            Economic Impact: Palm trees have significant economic importance in many tropical regions,
+                            supporting livelihoods and driving economic development. Palm oil production, in particular,
+                            is a major industry, generating revenue, employment, and foreign exchange earnings for
+                            palm-producing countries. Additionally, tourism centered around palm-lined beaches and
+                            tropical landscapes contributes to local economies, attracting visitors and investment.
+                            <br><br>
+
+                            Sustainable Practices: As concerns over environmental sustainability grow, there is
+                            increasing focus on promoting sustainable palm cultivation and harvesting practices.
+                            Initiatives such as certification programs, sustainable land management, and agroforestry
+                            promote responsible palm cultivation while minimizing environmental impacts such as
+                            deforestation, habitat loss, and biodiversity decline. By adopting sustainable practices,
+                            palm growers can ensure the long-term viability of palm plantations and protect valuable
+                            ecosystems. <br>brq
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal3">
+                    <img src="./images/family.png" style="
+                          height: 30%;
+                          margin-left: 10px;
+                          margin-right: 10px;
+                          margin-top: 10px;
+                        " class="SVG-Image" />
+                    <br />
+                    <p>Family</p>
+
+                    <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel3">
+                              Family
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal3"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Palm trees belong to the botanical family Arecaceae, which is also known as Palmae. This
+                            family encompasses a diverse range of species, with over 2,500 known types of palms found in
+                            various habitats worldwide. <br> Some well-known genera within the Arecaceae family include
+                            Phoenix (date palms), Cocos (coconut palms), and Elaeis (oil palms). Each genus contains
+                            multiple species with distinct characteristics and uses.
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <a href="#" class="svg-item" data-bs-toggle="modal" data-bs-target="#exampleModal4">
+                    <img src="./images/other info.png" style="
+                          height: 30%;
+                          margin-left: 10px;
+                          margin-right: 10px;
+                          margin-top: 10px;
+                        " class="SVG-Image" />
+                    <br />
+                    <p>Other Info</p>
+
+                    <div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel"
+                      aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel4">
+                              Other Info
+                            </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal4"
+                              aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Legal Status: The legal status of palm trees varies depending on regional regulations and
+                            conservation efforts. While palm cultivation and use are generally accepted and regulated in
+                            many countries, there are instances where specific palm species are protected due to
+                            conservation concerns. In some regions, strict regulations are imposed to prevent illegal
+                            logging, habitat destruction, and biodiversity loss associated with palm tree harvesting.
+                            Efforts to enforce sustainable practices and protect palm forests are increasingly
+                            emphasized as part of conservation initiatives. <br><br>
+
+                            Cultural Impact: Palm trees have left an indelible mark on human culture, inspiring art,
+                            literature, and symbolism throughout history. From ancient civilizations to modern
+                            societies, palms have been celebrated as symbols of beauty, resilience, and paradise. Their
+                            iconic silhouette against tropical landscapes evokes a sense of relaxation and escape,
+                            influencing artistic expression and cultural narratives worldwide. <br><br>
+
+                            Ongoing Research: Ongoing research endeavors aim to deepen our understanding of palm
+                            ecology, biodiversity, and conservation strategies. Scientists study palm tree species to
+                            assess their ecological roles, genetic diversity, and responses to environmental changes.
+                            Research also focuses on sustainable palm cultivation practices, including agroforestry
+                            methods, biodiversity conservation, and the development of certified palm products.
+                            Furthermore, efforts are made to explore the potential of palm-based biofuels, renewable
+                            materials, and climate change mitigation strategies. Through collaborative research and
+                            interdisciplinary approaches, scientists seek to address pressing challenges facing palm
+                            tree populations and promote their long-term sustainability. <br><br>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                              Close
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-latest-news">
+      <div class="latest-news">
+        <div class="big-text">
+          <p align="center">Trends</p>
+          <h3 align="center">Latest News And Articles</h3>
+        </div>
+        <div class="row" style="padding-top: 5rem">
+          <div class="col-md-4">
+            <div class="card" style="background-color: beige">
+              <img src="./images/rare1.jpg " class="card-img-top trends-img" alt="Normal Image" />
+              <div class="card-body" style="color: red">
+                <h4>Rare and Exotic Plants</h4>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                  The fascination with rare and exotic plants will continue to
+                  grow in 2023. Plant collectors and enthusiasts will seek out
+                  unique and hard-to-find specimens to add to their
+                  collections. Rare orchids, carnivorous plants like the Venus
+                  flytrap, and uncommon succulents such as the lithops (living
+                  stones) will be in high demand.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card" style="background-color: beige">
+              <img src="./images/kentia palm.jfif" class="card-img-top trends-img" alt="Stretched Image" />
+              <div class="card-body" style="color: rgb(219, 153, 54)">
+                <h4>Indoor Trees and Statement Plants</h4>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                  Large indoor plants, often referred to as "indoor trees,"
+                  will take center stage in interior decor trends for 2023.
+                  These statement plants add a touch of drama and elegance to
+                  any space. Popular choices include fiddle leaf figs,
+                  monstera deliciosa, and palm varieties like the areca palm
+                  or kentia palm.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card" style="background-color: beige">
+              <img src="./images/calathea.jpg" class="card-img-top trends-img" alt="Normal Image" />
+              <div class="card-body" style="color: green">
+                <h4>Unusual Foliage</h4>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                  In 2023, plant enthusiasts will gravitate towards plants
+                  with distinctive foliage. Unique patterns, textures, and
+                  colors will be highly sought after. Varieties like calathea
+                  with their intricate leaf patterns, philodendron pink
+                  princess with its stunning pink and green foliage, or
+                  begonia rex with its vibrant and textured leaves are
+                  anticipated to be popular choices.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    // Function to toggle dark mode
+    function toggleDarkMode() {
+      const body = document.body;
+      const darkModeToggleIcon = document.getElementById("dark-mode-toggle");
+
+      // Toggle dark mode class on body
+      body.classList.toggle("dark-mode");
+
+      // Toggle moon icon class based on dark mode state
+      if (body.classList.contains("dark-mode")) {
+        darkModeToggleIcon.classList.remove("bi-moon");
+        darkModeToggleIcon.classList.add("bi-moon-fill");
+      } else {
+        darkModeToggleIcon.classList.remove("bi-moon-fill");
+        darkModeToggleIcon.classList.add("bi-moon");
+      }
+
+      // Store the dark mode preference in local storage
+      const isDarkMode = body.classList.contains("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode);
+    }
+
+    // Event listener for dark mode toggle button
+    document
+      .getElementById("dark-mode-toggle")
+      .addEventListener("click", toggleDarkMode);
+
+    // Check local storage for dark mode preference on page load
+    document.addEventListener("DOMContentLoaded", function () {
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      const darkModeToggleIcon = document.getElementById("dark-mode-toggle");
+
+      if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        darkModeToggleIcon.classList.remove("bi-moon");
+        darkModeToggleIcon.classList.add("bi-moon-fill");
+      } else {
+        darkModeToggleIcon.classList.remove("bi-moon-fill");
+        darkModeToggleIcon.classList.add("bi-moon");
+      }
+    });
+  </script>
+  <!-- translator -->
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement(
+        { pageLanguage: "en" },
+        "google_translate_element"
+      );
+    }
+  </script>
+
+  <script type="text/javascript"
+    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <i>
+    <footer class="footer-section container-fluid text-light"style="margin-top: 5%;">
+      <div class="row">
+        <div class="footer-head col-md-3">
+          <img src="./images/agro_g.png" style="padding-top: 50px; width: 100px" class="kayybites_footer_logo"
+            alt="Logo" />
+
+          <div class="list-unstyled-container">
+            <p style="color: black; font-size: small">
+              <br />
+              Your go-to destination for hassle-free horticulture. Explore our
+              user-friendly platform offering a wide selection of fruits,
+              flowers, and vegetables, complete with easy-to-use control
+              mechanisms. Discover the perfect plants for every season. Join
+              us and simplify your farming journey with AgroG.
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-head col-md-3">
+          <h5><b>Quick Links</b></h5>
+          <ul class="list-unstyled">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="flora.html">Flora</a></li>
+            <li><a href="weather-forecast.html">Weather Forecast</a></li>
+            <li><a href="community-forum.html">Community Forum</a></li>
+          </ul>
+        </div>
+        <div class="footer-head col-md-3">
+          <h5><b>Personalized</b></h5>
+          <ul class="list-unstyled">
+            <li><a href="contact.html">My Account</a></li>
+            <li><a href="contact.html">Terms And Conditions</a></li>
+            <li><a href="contact.html">Privacy Policy</a></li>
+            <li><a href="login.html">Sign out</a></li>
+          </ul>
+        </div>
+        <div class="footer-head col-md-3">
+          <h5><b>Socials</b></h5>
+          <div class="list-unstyled-container">
+            <p class="small-text" style="color: black">
+              Follow us for more updates
+            </p>
+            <a href=""><i class="bi bi-instagram instagram" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-twitter twitter" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-facebook facebook" style="font-size: 20px"></i></a>
+            <a href=""><i class="bi bi-youtube youtube" style="font-size: 20px"></i></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </i>
+
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js" defer></script>
+</body>
+
+</html>
