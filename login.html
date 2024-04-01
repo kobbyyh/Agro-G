@@ -95,26 +95,19 @@
           const user = userCredential.user;
           console.log("User signed in:", user.uid);
 
-          // Store user details in session storage
-          /*const userInfo = {
-            displayName: user.name,
-            email: user.email,
-            // Add more user information if needed
-          };*/
           sessionStorage.setItem("user", JSON.stringify(user));
 
-          // Redirect to a secure page
-          window.location.href = "login.html";
-        })
-        .catch((error) => {
-          alert("Error: " + error.message);
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          console.error("Login error:", errorCode, errorMessage);
-        });
-    };
-
-
+            // Redirect to a secure page
+            window.location.href = "index.html";
+          })
+          .catch((error) => {
+            alert("Error: " + error.message);
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.error("Login error:", errorCode, errorMessage);
+          });
+      };
+        
     MainForm.addEventListener("submit", SignInUser);
   </script>
 
