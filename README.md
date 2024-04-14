@@ -37,6 +37,8 @@ We welcome contributions from the community! If you're interested in contributin
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57a0b2bc-a870-49d2-a520-4bf5a6d45c1f/deploy-status)](https://app.netlify.com/sites/agrog/deploys)
+
 ## Contact
 
 For inquiries or feedback, please contact us at agro.gblr@gmail.com.
