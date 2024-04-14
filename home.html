@@ -47,6 +47,18 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css" rel="stylesheet" />
 
   <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js"></script>
+  <script>
+    // Check if the user is authenticated
+    const user = JSON.parse(sessionStorage.getItem('user'));
+    if (user) {
+        // User is authenticated
+        displayUserInfo(user);
+    } else {
+        // Redirect to the login page if the user is not authenticated
+        window.location.href = "index.html";
+    }
+</script>
+
   <!-- <script>
       // Initialize Firebase
       const firebaseConfig = {
@@ -71,6 +83,108 @@
 </head>
 
 <body>
+
+  <script>
+    let UserInfo = JSON.parse(sessionStorage.getItem('user-info'));
+
+    let msgHead = document.getElementById('name');
+    let GreetHead = document.getElementById('email');
+    let bio = document.getElementById('bio');
+    let SignOutBtn = document.getElementById('signoutbutton');
+
+    let SignOut = () => {
+        firebase.auth().signOut().then(() => {
+            // Sign-out successful.
+            sessionStorage.removeItem('user-cred');
+            sessionStorage.removeItem('user-info');
+            window.location.href = 'login.html';
+        }).catch((error) => {
+            // An error happened.
+            console.log(error);
+        });
+    }
+
+    let CheckCred = () => {
+        if (!sessionStorage.getItem("user-cred")) {
+            window.location.href = 'login.html';
+        } else {
+            msgHead.innerText = Name: ${ UserInfo.name };
+            GreetHead.innerText = Email: ${ UserInfo.email };
+            bio.innerText = Bio: ${ UserInfo.bio };
+        }
+    }
+    window.addEventListener('load', CheckCred);
+    SignOutBtn.addEventListener('click', SignOut);
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-analytics.js";
+  import { getDatabase, get, ref, child } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+  const firebaseConfig = {
+      apiKey: "AIzaSyDZkSheSC3erQVh0OFaHOpyBgTLr-Zemf0",
+      authDomain: "agrog-ac9d5.firebaseapp.com",
+      databaseURL: "https://agrog-ac9d5-default-rtdb.firebaseio.com",
+      projectId: "agrog-ac9d5",
+      storageBucket: "agrog-ac9d5.appspot.com",
+      messagingSenderId: "666106586887",
+      appId: "1:666106586887:web:e0f28eb6fd837ee21e47a2",
+      measurementId: "G-08ER6YLGEN",
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getDatabase(app);
+
+  //fetch data
+  const userSession = JSON.parse(sessionStorage.getItem('user'));
+  console.log(userSession?.uid, "abc");
+
+  if (userSession && userSession.uid) {
+      const userRef = ref(db, 'users/' + userSession.uid);
+
+      get(userRef).then((snapshot) => {
+          if (snapshot.exists()) {
+              const data = snapshot.val();
+              sessionStorage.setItem('user-info', JSON.stringify(data));
+              var user = JSON.parse(sessionStorage.getItem('user-info'));
+              var name = user.firstName + " " + user.lastName;
+              document.getElementById("name").innerText = name;
+              document.getElementById("email").innerText = user.email;
+              document.getElementById("bio").innerText = user.bio;
+          } else {
+              console.log("No data available for this user");
+          }
+      }).catch((error) => {
+          console.error("Error fetching user data:", error);
+      });
+  } else {
+      console.error("User not authenticated or session data invalid.");
+  }
+  // Function to display user information
+
+  // Event listener for the Sign Out button
+  const signOutBtn = document.getElementById("signOutBtn");
+  signOutBtn.addEventListener("click", () => {
+      auth.signOut().then(() => {
+          // Sign-out successful
+          console.log("User signed out successfully.");
+          // Clear session storage
+          sessionStorage.clear();
+          console.log("Session storage cleared.");
+          // Redirect to the login page
+          window.location.href = "login.html"; // Redirect to the login page
+      }).catch((error) => {
+          // An error occurred during sign-out
+          console.error("Error signing out:", error);
+      });
+  });
+
+</script>
   <div class="pager">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div class="navigation container-fluid">
@@ -115,7 +229,7 @@
                 style="font-size: 20px"></i></a>
             <a href="" type="button" class="btn btn-outline-success mr-2"><i class="bi bi-facebook facebook"
                 style="font-size: 20px"></i></a>
-            <a href="login.html" data-toggle="tooltip" title="Logout!" type="button"
+            <a data-toggle="tooltip" title="Logout!" type="button"
               class="btn btn-outline-danger mr-2" id="signOutBtn"><i class="bi bi-box-arrow-right logout"
                 style="font-size: 20px"></i></a>
           </div>
