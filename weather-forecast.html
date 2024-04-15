@@ -122,8 +122,6 @@
                             <div class="card" onclick="flipCard(this)">
                                 <div class="card-inner bg-white">
                                     <div class="spring-front">
-                                        <!-- <img src="./images/waving.png" class="card-title-weather-headings"
-                                            style="width:150px; height: 50px;" alt=""> -->
                                     </div>
                                     <div class="spring-back">
                                         <h5 class="card-title">Spring is a season of hope and growth, symbolizing the
@@ -483,7 +481,7 @@
             const city = 'Bangalore';
             const country = 'India';
 
-            const apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`;
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`;
 
             fetch(apiUrl)
                 .then(response => response.json())
